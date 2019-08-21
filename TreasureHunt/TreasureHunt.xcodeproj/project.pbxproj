@@ -33,6 +33,9 @@
 		493CEA07230D7AF600E43B35 /* xis.dae in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FD230D7AF600E43B35 /* xis.dae */; };
 		493CEA08230D7AF600E43B35 /* placaright.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FE230D7AF600E43B35 /* placaright.scn */; };
 		493CEA09230D7AF600E43B35 /* scroll.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FF230D7AF600E43B35 /* scroll.scn */; };
+		75D434BF4F544B5BF7D0C844 /* Pods_TreasureHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D708D2D00F78018919CF46ED /* Pods_TreasureHunt.framework */; };
+		89AC0582978D723E14E6A367 /* Pods_TreasureHuntTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A788A7D387B66BE9A8D3A2D /* Pods_TreasureHuntTests.framework */; };
+		AC970136717A7CE2FB5FFA7A /* Pods_TreasureHuntUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FB52027F73ADE9FB186BD0 /* Pods_TreasureHuntUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22575E746C3489F4714F8B23 /* Pods-TreasureHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.debug.xcconfig"; path = "Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		493CE997230D714800E43B35 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		493CE99A230D714800E43B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		493CE99C230D714800E43B35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,14 @@
 		493CE9FD230D7AF600E43B35 /* xis.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = xis.dae; sourceTree = "<group>"; };
 		493CE9FE230D7AF600E43B35 /* placaright.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = placaright.scn; sourceTree = "<group>"; };
 		493CE9FF230D7AF600E43B35 /* scroll.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = scroll.scn; sourceTree = "<group>"; };
+		4A788A7D387B66BE9A8D3A2D /* Pods_TreasureHuntTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHuntTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52FB52027F73ADE9FB186BD0 /* Pods_TreasureHuntUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHuntUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F6A162A96C303EFB83DA9C4 /* Pods-TreasureHuntUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHuntUITests.debug.xcconfig"; path = "Target Support Files/Pods-TreasureHuntUITests/Pods-TreasureHuntUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A06EBE2303F8678F0B7B31E9 /* Pods-TreasureHuntUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHuntUITests.release.xcconfig"; path = "Target Support Files/Pods-TreasureHuntUITests/Pods-TreasureHuntUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A4B4A3F75F1BA666D29C52D2 /* Pods-TreasureHuntTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHuntTests.release.xcconfig"; path = "Target Support Files/Pods-TreasureHuntTests/Pods-TreasureHuntTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD1836DD286A8AC92B7AD3DD /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
+		C80CB7C5B3B049638BBF1953 /* Pods-TreasureHuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHuntTests.debug.xcconfig"; path = "Target Support Files/Pods-TreasureHuntTests/Pods-TreasureHuntTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D708D2D00F78018919CF46ED /* Pods_TreasureHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D434BF4F544B5BF7D0C844 /* Pods_TreasureHunt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89AC0582978D723E14E6A367 /* Pods_TreasureHuntTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC970136717A7CE2FB5FFA7A /* Pods_TreasureHuntUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +134,8 @@
 				493CE9B1230D714900E43B35 /* TreasureHuntTests */,
 				493CE9BC230D714900E43B35 /* TreasureHuntUITests */,
 				493CE998230D714800E43B35 /* Products */,
+				FDF9FE23F70B4DC9532B7AEB /* Pods */,
+				E6AEE28BA009F837E6A91CD7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				493CE9A4230D714900E43B35 /* Assets.xcassets */,
-				493CE9F5230D7AF600E43B35 /* modelagens */,
+				493CE9F5230D7AF600E43B35 /* 3DModels */,
 				493CE9DB230D742600E43B35 /* Music */,
 				493CE9CC230D71B300E43B35 /* Font */,
 			);
@@ -197,7 +214,7 @@
 			path = Music;
 			sourceTree = "<group>";
 		};
-		493CE9F5230D7AF600E43B35 /* modelagens */ = {
+		493CE9F5230D7AF600E43B35 /* 3DModels */ = {
 			isa = PBXGroup;
 			children = (
 				493CE9F6230D7AF600E43B35 /* woodplank 4 baked colourseta.png */,
@@ -211,7 +228,30 @@
 				493CE9FE230D7AF600E43B35 /* placaright.scn */,
 				493CE9FF230D7AF600E43B35 /* scroll.scn */,
 			);
-			path = modelagens;
+			path = 3DModels;
+			sourceTree = "<group>";
+		};
+		E6AEE28BA009F837E6A91CD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D708D2D00F78018919CF46ED /* Pods_TreasureHunt.framework */,
+				4A788A7D387B66BE9A8D3A2D /* Pods_TreasureHuntTests.framework */,
+				52FB52027F73ADE9FB186BD0 /* Pods_TreasureHuntUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDF9FE23F70B4DC9532B7AEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22575E746C3489F4714F8B23 /* Pods-TreasureHunt.debug.xcconfig */,
+				BD1836DD286A8AC92B7AD3DD /* Pods-TreasureHunt.release.xcconfig */,
+				C80CB7C5B3B049638BBF1953 /* Pods-TreasureHuntTests.debug.xcconfig */,
+				A4B4A3F75F1BA666D29C52D2 /* Pods-TreasureHuntTests.release.xcconfig */,
+				9F6A162A96C303EFB83DA9C4 /* Pods-TreasureHuntUITests.debug.xcconfig */,
+				A06EBE2303F8678F0B7B31E9 /* Pods-TreasureHuntUITests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 493CE9C2230D714900E43B35 /* Build configuration list for PBXNativeTarget "TreasureHunt" */;
 			buildPhases = (
+				D91356BEF5105C444CB70C99 /* [CP] Check Pods Manifest.lock */,
 				493CE993230D714800E43B35 /* Sources */,
 				493CE994230D714800E43B35 /* Frameworks */,
 				493CE995230D714800E43B35 /* Resources */,
+				493CEA0A230D7DF500E43B35 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -238,6 +280,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 493CE9C5230D714900E43B35 /* Build configuration list for PBXNativeTarget "TreasureHuntTests" */;
 			buildPhases = (
+				6A3FF1D089A89A17D29C8257 /* [CP] Check Pods Manifest.lock */,
 				493CE9AA230D714900E43B35 /* Sources */,
 				493CE9AB230D714900E43B35 /* Frameworks */,
 				493CE9AC230D714900E43B35 /* Resources */,
@@ -256,6 +299,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 493CE9C8230D714900E43B35 /* Build configuration list for PBXNativeTarget "TreasureHuntUITests" */;
 			buildPhases = (
+				537865A6322CA1F93E41F21B /* [CP] Check Pods Manifest.lock */,
 				493CE9B5230D714900E43B35 /* Sources */,
 				493CE9B6230D714900E43B35 /* Frameworks */,
 				493CE9B7230D714900E43B35 /* Resources */,
@@ -353,6 +397,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		493CEA0A230D7DF500E43B35 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		537865A6322CA1F93E41F21B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TreasureHuntUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A3FF1D089A89A17D29C8257 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TreasureHuntTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D91356BEF5105C444CB70C99 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TreasureHunt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		493CE993230D714800E43B35 /* Sources */ = {
@@ -530,6 +660,7 @@
 		};
 		493CE9C3230D714900E43B35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22575E746C3489F4714F8B23 /* Pods-TreasureHunt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -548,6 +679,7 @@
 		};
 		493CE9C4230D714900E43B35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD1836DD286A8AC92B7AD3DD /* Pods-TreasureHunt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,6 +698,7 @@
 		};
 		493CE9C6230D714900E43B35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C80CB7C5B3B049638BBF1953 /* Pods-TreasureHuntTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -587,6 +720,7 @@
 		};
 		493CE9C7230D714900E43B35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4B4A3F75F1BA666D29C52D2 /* Pods-TreasureHuntTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -608,6 +742,7 @@
 		};
 		493CE9C9230D714900E43B35 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F6A162A96C303EFB83DA9C4 /* Pods-TreasureHuntUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -628,6 +763,7 @@
 		};
 		493CE9CA230D714900E43B35 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A06EBE2303F8678F0B7B31E9 /* Pods-TreasureHuntUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

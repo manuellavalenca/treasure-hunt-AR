@@ -1,0 +1,6 @@
+framework module Pods_TreasureHuntUITests {
+  umbrella header "Pods-TreasureHuntUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
