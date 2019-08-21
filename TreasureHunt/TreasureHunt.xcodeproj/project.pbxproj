@@ -11,14 +11,12 @@
 		493CE99D230D714800E43B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE99C230D714800E43B35 /* ViewController.swift */; };
 		493CE9A3230D714800E43B35 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9A1230D714800E43B35 /* TreasureHunt.xcdatamodeld */; };
 		493CE9A5230D714900E43B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9A4230D714900E43B35 /* Assets.xcassets */; };
-		493CE9A8230D714900E43B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9A6230D714900E43B35 /* LaunchScreen.storyboard */; };
 		493CE9B3230D714900E43B35 /* TreasureHuntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9B2230D714900E43B35 /* TreasureHuntTests.swift */; };
 		493CE9BE230D714900E43B35 /* TreasureHuntUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9BD230D714900E43B35 /* TreasureHuntUITests.swift */; };
 		493CE9CF230D71CC00E43B35 /* big_noodle_titling_oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9CD230D71C400E43B35 /* big_noodle_titling_oblique.ttf */; };
 		493CE9D0230D71CF00E43B35 /* big_noodle_titling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9CE230D71C400E43B35 /* big_noodle_titling.ttf */; };
 		493CE9D2230D71FC00E43B35 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D1230D71FC00E43B35 /* Service.swift */; };
 		493CE9D4230D720300E43B35 /* ARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D3230D720300E43B35 /* ARNode.swift */; };
-		493CE9D6230D721500E43B35 /* Screens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D5230D721500E43B35 /* Screens.swift */; };
 		493CE9D8230D721B00E43B35 /* ARPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D7230D721B00E43B35 /* ARPart.swift */; };
 		493CE9DA230D734A00E43B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */; };
 		493CE9E8230D742600E43B35 /* bensound-sunny.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9DC230D742600E43B35 /* bensound-sunny.mp3 */; };
@@ -62,7 +60,6 @@
 		493CE99C230D714800E43B35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		493CE9A2230D714800E43B35 /* TreasureHunt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TreasureHunt.xcdatamodel; sourceTree = "<group>"; };
 		493CE9A4230D714900E43B35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		493CE9A7230D714900E43B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		493CE9A9230D714900E43B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493CE9AE230D714900E43B35 /* TreasureHuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TreasureHuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		493CE9B2230D714900E43B35 /* TreasureHuntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureHuntTests.swift; sourceTree = "<group>"; };
@@ -74,7 +71,6 @@
 		493CE9CE230D71C400E43B35 /* big_noodle_titling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_noodle_titling.ttf; sourceTree = "<group>"; };
 		493CE9D1230D71FC00E43B35 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		493CE9D3230D720300E43B35 /* ARNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNode.swift; sourceTree = "<group>"; };
-		493CE9D5230D721500E43B35 /* Screens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screens.swift; sourceTree = "<group>"; };
 		493CE9D7230D721B00E43B35 /* ARPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPart.swift; sourceTree = "<group>"; };
 		493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		493CE9DC230D742600E43B35 /* bensound-sunny.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-sunny.mp3"; sourceTree = "<group>"; };
@@ -152,16 +148,14 @@
 		493CE999230D714800E43B35 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
+				493CE9CB230D71A000E43B35 /* Sources */,
 				493CE9F3230D747C00E43B35 /* Main.storyboard */,
 				493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */,
 				493CE99A230D714800E43B35 /* AppDelegate.swift */,
 				493CE99C230D714800E43B35 /* ViewController.swift */,
 				493CE9D1230D71FC00E43B35 /* Service.swift */,
 				493CE9D3230D720300E43B35 /* ARNode.swift */,
-				493CE9D5230D721500E43B35 /* Screens.swift */,
 				493CE9D7230D721B00E43B35 /* ARPart.swift */,
-				493CE9CB230D71A000E43B35 /* Sources */,
-				493CE9A6230D714900E43B35 /* LaunchScreen.storyboard */,
 				493CE9A9230D714900E43B35 /* Info.plist */,
 				493CE9A1230D714800E43B35 /* TreasureHunt.xcdatamodeld */,
 			);
@@ -363,7 +357,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				493CEA04230D7AF600E43B35 /* placaleft.scn in Resources */,
-				493CE9A8230D714900E43B35 /* LaunchScreen.storyboard in Resources */,
 				493CE9A5230D714900E43B35 /* Assets.xcassets in Resources */,
 				493CEA06230D7AF600E43B35 /* torabaked.png in Resources */,
 				493CE9D0230D71CF00E43B35 /* big_noodle_titling.ttf in Resources */,
@@ -493,7 +486,6 @@
 				493CE99D230D714800E43B35 /* ViewController.swift in Sources */,
 				493CE9D8230D721B00E43B35 /* ARPart.swift in Sources */,
 				493CE9D2230D71FC00E43B35 /* Service.swift in Sources */,
-				493CE9D6230D721500E43B35 /* Screens.swift in Sources */,
 				493CE99B230D714800E43B35 /* AppDelegate.swift in Sources */,
 				493CE9A3230D714800E43B35 /* TreasureHunt.xcdatamodeld in Sources */,
 			);
@@ -529,17 +521,6 @@
 			targetProxy = 493CE9BA230D714900E43B35 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		493CE9A6230D714900E43B35 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				493CE9A7230D714900E43B35 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		493CE9C0230D714900E43B35 /* Debug */ = {

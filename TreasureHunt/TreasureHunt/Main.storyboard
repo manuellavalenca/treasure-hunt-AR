@@ -258,8 +258,6 @@
                         <outlet property="clueInfoLabelView" destination="Isc-Ss-e9h" id="BaN-hU-gle"/>
                         <outlet property="clueLabelView" destination="OqW-ep-Lr1" id="fHC-Bg-nbO"/>
                         <outlet property="cluesView" destination="173-QD-gbF" id="yLE-Oh-Can"/>
-                        <outlet property="direita" destination="a2k-zs-uu0" id="EX7-uA-kj6"/>
-                        <outlet property="esquerda" destination="tpE-Xh-LMh" id="rBY-8t-bpU"/>
                         <outlet property="foundTreasureView" destination="rzB-aP-qsi" id="IXS-Cu-enp"/>
                         <outlet property="hideCharacterBackground" destination="zyo-e9-nPL" id="0Ze-kI-Ctb"/>
                         <outlet property="imageDetection" destination="qwC-0U-Gha" id="8gQ-ZX-D5h"/>
@@ -267,6 +265,7 @@
                         <outlet property="imageViewForNotification" destination="fAu-Zo-vgZ" id="531-yh-Qio"/>
                         <outlet property="introScreen" destination="y9m-xE-a91" id="ySR-dR-2He"/>
                         <outlet property="leftClueButton" destination="egr-9e-4Im" id="iFp-Ax-Qbm"/>
+                        <outlet property="leftLabel" destination="tpE-Xh-LMh" id="rBY-8t-bpU"/>
                         <outlet property="letterView" destination="evc-4r-88R" id="pxU-B6-hAl"/>
                         <outlet property="markPupUpView" destination="UZv-yF-4Rn" id="oOo-fE-sSq"/>
                         <outlet property="markTreasureLocationButton" destination="3yY-A2-ojq" id="932-v7-P3M"/>
@@ -275,6 +274,7 @@
                         <outlet property="okTextClueTextButton" destination="M5q-CF-7qu" id="UhD-SZ-kvq"/>
                         <outlet property="remarkTreasureLocationButton" destination="G0a-q9-pki" id="N9p-Xs-b3i"/>
                         <outlet property="rightClueButton" destination="Vrf-hU-FHQ" id="Okh-2d-JDc"/>
+                        <outlet property="rightLabel" destination="a2k-zs-uu0" id="EX7-uA-kj6"/>
                         <outlet property="sceneView" destination="JMR-jP-kDj" id="LQH-dF-hdN"/>
                         <outlet property="seekCharacterView" destination="jvh-WK-yng" id="DiN-Tb-Yy0"/>
                         <outlet property="seekView" destination="Nu5-qv-S94" id="Pfh-ZY-Eyf"/>
@@ -293,11 +293,11 @@
                         <outlet property="textWrittenButton" destination="a6F-sL-L4u" id="X78-9O-zdB"/>
                         <outlet property="touchScreenPopUp" destination="rXr-VX-2KB" id="har-TM-wuh"/>
                         <outlet property="trailClueButton" destination="QE2-oJ-3xh" id="5HF-9s-5mq"/>
+                        <outlet property="trailLabel" destination="CKc-E6-keW" id="6Dz-IQ-wno"/>
                         <outlet property="treasureChoosedButton" destination="nJu-KT-MJQ" id="p4c-VU-PzL"/>
                         <outlet property="treasureTipLabel" destination="k3A-cG-UDV" id="9ET-h1-IWF"/>
                         <outlet property="treasureTipTextField" destination="xuf-JL-vuC" id="iq7-96-isR"/>
                         <outlet property="treasureTipView" destination="YOi-BN-YUj" id="VRQ-Yo-SdH"/>
-                        <outlet property="trilha" destination="CKc-E6-keW" id="6Dz-IQ-wno"/>
                         <outlet property="viewFinal" destination="WMZ-4A-Lu3" id="awn-xe-B9z"/>
                         <outlet property="viewForNotification" destination="hWq-Cr-0p6" id="AV9-16-9X0"/>
                         <outlet property="welcomeScreen" destination="ww9-Ic-85U" id="CD5-az-2Rd"/>

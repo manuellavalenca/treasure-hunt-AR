@@ -12,9 +12,7 @@ import UIKit
 import ARKit
 
 class Service: NSObject {
-    
     static func addChildNode(_ node: SCNNode, toNode: SCNNode, inView: ARSCNView, cameraRelativePosition: SCNVector3) {
-        
         guard let currentFrame = inView.session.currentFrame else { return }
         let camera = currentFrame.camera
         let transform = camera.transform
