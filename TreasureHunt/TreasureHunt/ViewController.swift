@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var treasureTipView: UIView!
     @IBOutlet var foundTreasureView: UIView!
     @IBOutlet var viewForNotification: UIView!
-
+    
     // MARK: - Label das dicas
     @IBOutlet weak var trailLabel: UILabel!
     @IBOutlet weak var leftLabel: UILabel!
@@ -56,9 +56,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Introduction - Declaration
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var trailImage: UIImageView!
     var backgroundMusic = AVAudioPlayer()
     @IBOutlet weak var seloButton: UIButton!
     @IBOutlet weak var storyScreenImage: UIImageView!
@@ -70,9 +68,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Hide - Declaration
     @IBOutlet weak var hideCharacterBackground: UIView!
     @IBOutlet weak var treasureChoosedButton: UIButton!
-    @IBOutlet weak var treasureLocationImage: UIImageView!
     @IBOutlet weak var backStep1: UIButton!
-    @IBOutlet weak var trail3Image: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var
     remarkTreasureLocationButton: UIButton!
@@ -219,7 +215,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         rightClue = false
         leftClue = false
     }
-
+    
     @IBAction func textCluePressed(_ sender: Any) {
         markTreasure = false
         textClue = true
@@ -311,7 +307,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func changeTreasureLocation(_ sender: Any) {
         // excluir o ultimo node adicionado
         let ultimo = nodesArray.count - 1
-        if nodesArray.isEmpty {
+        if nodesArray.isEmpty == false {
             nodesArray[ultimo].node.removeFromParentNode()
             markTreasure = true
         }
@@ -443,7 +439,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func appWillEnterForeground() {
-        if  nodesArray.isEmpty || markTreasure == true {
+        if  nodesArray.isEmpty == false || markTreasure == true {
             self.viewForNotification.alpha = 1
             autoLayoutView(viewAutoLayout: viewForNotification)
             self.view.addSubview(viewForNotification)
@@ -476,7 +472,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.treasureTipView.isHidden = true
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
-    
+        
         // MARK: - Background Music by: bensound.com
         let url = Bundle.main.url(forResource: "bensound-sunny", withExtension: ".mp3")
         do {
@@ -487,7 +483,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } catch let error as NSError {
             print(error.debugDescription)
         }
-    
+        
         // MARK: - AR configurations
         addTapGestureToSceneView()
         configureLighting()
@@ -540,7 +536,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Distance
-    func compararDistancia( ) {
+    func hideFarNodes() {
         for node in nodesArray {
             if node.distance > 3.5 {
                 node.node.isHidden = true
@@ -556,15 +552,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let tapLocation = recognizer.location(in: sceneView)
             // Add node to existing plane
             var hitTestResults = sceneView.hitTest(tapLocation, types: .featurePoint)
-            if markTreasure == true {
+            if markTreasure == true || textClue == true {
                 hitTestResults = sceneView.hitTest(tapLocation, types: .featurePoint)
-            } else if textClue == true {
-                hitTestResults = sceneView.hitTest(tapLocation, types: .featurePoint)
-            } else if trailClue == true {
-                hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
-            } else if rightClue == true {
-                hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
-            } else if leftClue == true {
+            } else {
                 hitTestResults = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
             }
             guard let hitTestResult = hitTestResults.first else { return }
@@ -576,37 +566,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // MARK: - Geometry of each clue
             var trailScene = SCNScene()
             var trailNode = SCNNode()
-            var trailARNode = NodeAR()
+            let trailARNode = NodeAR()
             if trailClue == true {
                 trailScene = SCNScene(named: "trilhamadeira.scn")!
-                trailNode = trailScene.rootNode.childNodes[0]
-                let rotate = simd_float4x4(SCNMatrix4MakeRotation(sceneView.session.currentFrame!.camera.eulerAngles.y, 0, 1, 0))
-                let rotateTransform = simd_mul(hitTestResult.worldTransform, rotate)
-                trailNode.transform = SCNMatrix4Mult(trailNode.transform, SCNMatrix4(rotateTransform))
-                trailNode.position = SCNVector3(xAxis, yAxis, zAxis)
-                for child in trailScene.rootNode.childNodes {
-                    trailNode.addChildNode(child)
-                }
-                sceneView.scene.rootNode.addChildNode(trailNode)
                 trailARNode.isTreasure = false
                 trailARNode.isTextClue = false
-                trailARNode.node = trailNode
-                nodesArray.append(trailARNode)
+                trailNode = trailScene.rootNode.childNodes[0]
             } else if textClue == true {
                 trailScene = SCNScene(named: "scroll.scn")!
-                trailNode = trailScene.rootNode.childNodes[0]
-                let rotate = simd_float4x4(SCNMatrix4MakeRotation(sceneView.session.currentFrame!.camera.eulerAngles.y, 0, 1, 0))
-                let rotateTransform = simd_mul(hitTestResult.worldTransform, rotate)
-                trailNode.transform = SCNMatrix4Mult(trailNode.transform, SCNMatrix4(rotateTransform))
-                trailNode.position = SCNVector3(xAxis, yAxis, zAxis)
-                for child in trailScene.rootNode.childNodes {
-                    trailNode.addChildNode(child)
-                }
-                sceneView.scene.rootNode.addChildNode(trailNode)
                 trailARNode.isTextClue = true
                 trailARNode.isTreasure = false
-                trailARNode.node = trailNode
-                nodesArray.append(trailARNode)
+                trailNode = trailScene.rootNode.childNodes[0]
                 textClueTextField.placeholder = "Write your text"
                 self.letterView.alpha = 1
                 autolayoutScroll(scrollView: letterView)
@@ -614,48 +584,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 autoLayoutView(viewAutoLayout: letterView)
             } else if rightClue == true {
                 trailScene = SCNScene(named: "placaright.scn")!
-                trailNode = trailScene.rootNode.childNodes[0]
-                let rotate = simd_float4x4(SCNMatrix4MakeRotation(sceneView.session.currentFrame!.camera.eulerAngles.y, 0, 1, 0))
-                let rotateTransform = simd_mul(hitTestResult.worldTransform, rotate)
-                trailNode.transform = SCNMatrix4Mult(trailNode.transform, SCNMatrix4(rotateTransform))
-                trailNode.position = SCNVector3(xAxis, yAxis, zAxis)
-                for child in trailScene.rootNode.childNodes {
-                    trailNode.addChildNode(child)
-                }
-                sceneView.scene.rootNode.addChildNode(trailNode)
                 trailARNode.isTreasure = false
                 trailARNode.isTextClue = false
-                trailARNode.node = trailNode
-                nodesArray.append(trailARNode)
+                trailNode = trailScene.rootNode.childNodes[0]
             } else if markTreasure == true {
                 forX = true
                 trailScene = SCNScene(named: "xis.scn")!
                 trailNode = trailScene.rootNode.childNodes[0]
-                trailNode.position = SCNVector3(xAxis, yAxis, zAxis)
-                for child in trailScene.rootNode.childNodes {
-                    trailNode.addChildNode(child)
-                }
-                sceneView.scene.rootNode.addChildNode(trailNode)
                 trailARNode.isTreasure = true
                 trailARNode.isTextClue = false
-                trailARNode.node = trailNode
-                nodesArray.append(trailARNode)
             } else if leftClue == true {
                 trailScene = SCNScene(named: "placaleft.scn")!
                 trailNode = trailScene.rootNode.childNodes[0]
-                let rotate = simd_float4x4(SCNMatrix4MakeRotation(sceneView.session.currentFrame!.camera.eulerAngles.y, 0, 1, 0))
-                let rotateTransform = simd_mul(hitTestResult.worldTransform, rotate)
-                trailNode.transform = SCNMatrix4Mult(trailNode.transform, SCNMatrix4(rotateTransform))
-                trailNode.position = SCNVector3(xAxis, yAxis, zAxis)
-                for child in trailScene.rootNode.childNodes {
-                    trailNode.addChildNode(child)
-                }
-                sceneView.scene.rootNode.addChildNode(trailNode)
                 trailARNode.isTreasure = false
                 trailARNode.isTextClue = false
-                trailARNode.node = trailNode
-                nodesArray.append(trailARNode)
             }
+            let rotate = simd_float4x4(SCNMatrix4MakeRotation(sceneView.session.currentFrame!.camera.eulerAngles.y, 0, 1, 0))
+            let rotateTransform = simd_mul(hitTestResult.worldTransform, rotate)
+            trailNode.transform = SCNMatrix4Mult(trailNode.transform, SCNMatrix4(rotateTransform))
+            trailNode.position = SCNVector3(xAxis, yAxis, zAxis)
+            for child in trailScene.rootNode.childNodes {
+                trailNode.addChildNode(child)
+            }
+            sceneView.scene.rootNode.addChildNode(trailNode)
+            trailARNode.node = trailNode
+            nodesArray.append(trailARNode)
+            
             markTreasure = false
             textClue = false
             rightClue = false
@@ -665,8 +619,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func addTapGestureToSceneView() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.addNode(withGestureRecognizer:)))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
+        if self.forX == false {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.addNode(withGestureRecognizer:)))
+            sceneView.addGestureRecognizer(tapGestureRecognizer)
+        }
     }
     
     // MARK: - UITextFieldDelegate
@@ -676,9 +632,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var index : Int = -1
-        if nodesArray.isEmpty {
-            for nodeCounter in 0 ... (nodesArray.count-1) {
+        var index: Int = -1
+        if nodesArray.isEmpty == false {
+            for nodeCounter in 0 ... (nodesArray.count - 1) {
                 if let touch = touches.first {
                     if touch.view == self.sceneView {
                         let viewTouchLocation:CGPoint = touch.location(in: sceneView)

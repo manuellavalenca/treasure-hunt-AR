@@ -15,7 +15,7 @@
 		493CE9BE230D714900E43B35 /* TreasureHuntUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9BD230D714900E43B35 /* TreasureHuntUITests.swift */; };
 		493CE9CF230D71CC00E43B35 /* big_noodle_titling_oblique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9CD230D71C400E43B35 /* big_noodle_titling_oblique.ttf */; };
 		493CE9D0230D71CF00E43B35 /* big_noodle_titling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9CE230D71C400E43B35 /* big_noodle_titling.ttf */; };
-		493CE9D2230D71FC00E43B35 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D1230D71FC00E43B35 /* Service.swift */; };
+		493CE9D2230D71FC00E43B35 /* DistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D1230D71FC00E43B35 /* DistanceService.swift */; };
 		493CE9D4230D720300E43B35 /* ARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D3230D720300E43B35 /* ARNode.swift */; };
 		493CE9D8230D721B00E43B35 /* ARPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D7230D721B00E43B35 /* ARPart.swift */; };
 		493CE9DA230D734A00E43B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */; };
@@ -69,7 +69,7 @@
 		493CE9BF230D714900E43B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493CE9CD230D71C400E43B35 /* big_noodle_titling_oblique.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_noodle_titling_oblique.ttf; sourceTree = "<group>"; };
 		493CE9CE230D71C400E43B35 /* big_noodle_titling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_noodle_titling.ttf; sourceTree = "<group>"; };
-		493CE9D1230D71FC00E43B35 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		493CE9D1230D71FC00E43B35 /* DistanceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceService.swift; sourceTree = "<group>"; };
 		493CE9D3230D720300E43B35 /* ARNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNode.swift; sourceTree = "<group>"; };
 		493CE9D7230D721B00E43B35 /* ARPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPart.swift; sourceTree = "<group>"; };
 		493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 				493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */,
 				493CE99A230D714800E43B35 /* AppDelegate.swift */,
 				493CE99C230D714800E43B35 /* ViewController.swift */,
-				493CE9D1230D71FC00E43B35 /* Service.swift */,
+				493CE9D1230D71FC00E43B35 /* DistanceService.swift */,
 				493CE9D3230D720300E43B35 /* ARNode.swift */,
 				493CE9D7230D721B00E43B35 /* ARPart.swift */,
 				493CE9A9230D714900E43B35 /* Info.plist */,
@@ -485,7 +485,7 @@
 				493CE9D4230D720300E43B35 /* ARNode.swift in Sources */,
 				493CE99D230D714800E43B35 /* ViewController.swift in Sources */,
 				493CE9D8230D721B00E43B35 /* ARPart.swift in Sources */,
-				493CE9D2230D71FC00E43B35 /* Service.swift in Sources */,
+				493CE9D2230D71FC00E43B35 /* DistanceService.swift in Sources */,
 				493CE99B230D714800E43B35 /* AppDelegate.swift in Sources */,
 				493CE9A3230D714800E43B35 /* TreasureHunt.xcdatamodeld in Sources */,
 			);

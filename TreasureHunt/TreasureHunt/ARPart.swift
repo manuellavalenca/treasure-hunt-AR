@@ -55,19 +55,18 @@ extension ViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         if self.gameRunning {
-            self.compararDistancia()
+            self.hideFarNodes()
         }
         for node in nodesArray {
             startingPositionNode = node.node
             if startingPositionNode != nil && endingPositionNode != nil {
                 return
             }
-            guard let xDistance = Service.distance3(fromStartingPositionNode: startingPositionNode, onView: sceneView, cameraRelativePosition: cameraRelativePosition)?.x else {return}
-            guard let yDistance = Service.distance3(fromStartingPositionNode: startingPositionNode, onView: sceneView, cameraRelativePosition: cameraRelativePosition)?.y else {return}
-            guard let zDistance = Service.distance3(fromStartingPositionNode: startingPositionNode, onView: sceneView, cameraRelativePosition: cameraRelativePosition)?.z else {return}
+            guard let xDistance = DistanceService.distance3(fromStartingPositionNode: startingPositionNode, onView: sceneView, cameraRelativePosition: cameraRelativePosition)?.x else {return}
+            guard let yDistance = DistanceService.distance3(fromStartingPositionNode: startingPositionNode, onView: sceneView, cameraRelativePosition: cameraRelativePosition)?.y else {return}
+            guard let zDistance = DistanceService.distance3(fromStartingPositionNode: startingPositionNode, onView: sceneView, cameraRelativePosition: cameraRelativePosition)?.z else {return}
             DispatchQueue.main.async {
-                //self.distanceLabel.text = String(format: "Distance: %.2f", Service.distance(x: xDistance, y: yDistance, z: zDistance)) + "m"
-                node.distance = Service.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance)
+                node.distance = DistanceService.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance)
             }
         }
     }
