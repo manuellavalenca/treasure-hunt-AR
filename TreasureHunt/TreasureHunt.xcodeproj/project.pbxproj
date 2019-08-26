@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4933C1872314214D00965996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1862314214D00965996 /* Constants.swift */; };
+		4933C18B2314245200965996 /* ClueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C18A2314245200965996 /* ClueType.swift */; };
+		4933C18D2314248200965996 /* TreasureHuntStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C18C2314248200965996 /* TreasureHuntStateMachine.swift */; };
+		4933C1912314271A00965996 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1902314271A00965996 /* ARViewController.swift */; };
+		4933C1952314349400965996 /* TreasureFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1942314349400965996 /* TreasureFound.swift */; };
+		4933C198231437B700965996 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C197231437B700965996 /* GameScene.swift */; };
+		4933C19B2314387B00965996 /* AddingClues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C19A2314387B00965996 /* AddingClues.swift */; };
+		4933C19D231438B600965996 /* HidingTreasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C19C231438B600965996 /* HidingTreasure.swift */; };
+		4933C19F2314392D00965996 /* LookingForTreasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C19E2314392D00965996 /* LookingForTreasure.swift */; };
 		493CE99B230D714800E43B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE99A230D714800E43B35 /* AppDelegate.swift */; };
 		493CE99D230D714800E43B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE99C230D714800E43B35 /* ViewController.swift */; };
 		493CE9A3230D714800E43B35 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9A1230D714800E43B35 /* TreasureHunt.xcdatamodeld */; };
@@ -17,7 +26,6 @@
 		493CE9D0230D71CF00E43B35 /* big_noodle_titling.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9CE230D71C400E43B35 /* big_noodle_titling.ttf */; };
 		493CE9D2230D71FC00E43B35 /* DistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D1230D71FC00E43B35 /* DistanceService.swift */; };
 		493CE9D4230D720300E43B35 /* ARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D3230D720300E43B35 /* ARNode.swift */; };
-		493CE9D8230D721B00E43B35 /* ARPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9D7230D721B00E43B35 /* ARPart.swift */; };
 		493CE9DA230D734A00E43B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */; };
 		493CE9E8230D742600E43B35 /* bensound-sunny.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9DC230D742600E43B35 /* bensound-sunny.mp3 */; };
 		493CE9F4230D747C00E43B35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9F3230D747C00E43B35 /* Main.storyboard */; };
@@ -55,6 +63,15 @@
 
 /* Begin PBXFileReference section */
 		22575E746C3489F4714F8B23 /* Pods-TreasureHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.debug.xcconfig"; path = "Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.debug.xcconfig"; sourceTree = "<group>"; };
+		4933C1862314214D00965996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4933C18A2314245200965996 /* ClueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueType.swift; sourceTree = "<group>"; };
+		4933C18C2314248200965996 /* TreasureHuntStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureHuntStateMachine.swift; sourceTree = "<group>"; };
+		4933C1902314271A00965996 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		4933C1942314349400965996 /* TreasureFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureFound.swift; sourceTree = "<group>"; };
+		4933C197231437B700965996 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		4933C19A2314387B00965996 /* AddingClues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingClues.swift; sourceTree = "<group>"; };
+		4933C19C231438B600965996 /* HidingTreasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidingTreasure.swift; sourceTree = "<group>"; };
+		4933C19E2314392D00965996 /* LookingForTreasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookingForTreasure.swift; sourceTree = "<group>"; };
 		493CE997230D714800E43B35 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		493CE99A230D714800E43B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		493CE99C230D714800E43B35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +88,6 @@
 		493CE9CE230D71C400E43B35 /* big_noodle_titling.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_noodle_titling.ttf; sourceTree = "<group>"; };
 		493CE9D1230D71FC00E43B35 /* DistanceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistanceService.swift; sourceTree = "<group>"; };
 		493CE9D3230D720300E43B35 /* ARNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARNode.swift; sourceTree = "<group>"; };
-		493CE9D7230D721B00E43B35 /* ARPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARPart.swift; sourceTree = "<group>"; };
 		493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		493CE9DC230D742600E43B35 /* bensound-sunny.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-sunny.mp3"; sourceTree = "<group>"; };
 		493CE9F3230D747C00E43B35 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +139,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4933C183231420FA00965996 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4933C1932314347700965996 /* Game State Machine */,
+				493CE9D3230D720300E43B35 /* ARNode.swift */,
+				493CE9D1230D71FC00E43B35 /* DistanceService.swift */,
+				4933C1862314214D00965996 /* Constants.swift */,
+				4933C18A2314245200965996 /* ClueType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4933C1842314210600965996 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				493CE9F3230D747C00E43B35 /* Main.storyboard */,
+				493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */,
+				4933C197231437B700965996 /* GameScene.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4933C1852314210C00965996 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				493CE99C230D714800E43B35 /* ViewController.swift */,
+				4933C1902314271A00965996 /* ARViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4933C18F2314262700965996 /* Support files */ = {
+			isa = PBXGroup;
+			children = (
+				493CE9CB230D71A000E43B35 /* Resources */,
+				493CE9A9230D714900E43B35 /* Info.plist */,
+				493CE99A230D714800E43B35 /* AppDelegate.swift */,
+				493CE9A1230D714800E43B35 /* TreasureHunt.xcdatamodeld */,
+			);
+			path = "Support files";
+			sourceTree = "<group>";
+		};
+		4933C1932314347700965996 /* Game State Machine */ = {
+			isa = PBXGroup;
+			children = (
+				4933C1992314385100965996 /* Game States */,
+				4933C18C2314248200965996 /* TreasureHuntStateMachine.swift */,
+			);
+			path = "Game State Machine";
+			sourceTree = "<group>";
+		};
+		4933C1992314385100965996 /* Game States */ = {
+			isa = PBXGroup;
+			children = (
+				4933C19C231438B600965996 /* HidingTreasure.swift */,
+				4933C19A2314387B00965996 /* AddingClues.swift */,
+				4933C19E2314392D00965996 /* LookingForTreasure.swift */,
+				4933C1942314349400965996 /* TreasureFound.swift */,
+			);
+			path = "Game States";
+			sourceTree = "<group>";
+		};
 		493CE98E230D714800E43B35 = {
 			isa = PBXGroup;
 			children = (
@@ -148,16 +226,10 @@
 		493CE999230D714800E43B35 /* TreasureHunt */ = {
 			isa = PBXGroup;
 			children = (
-				493CE9CB230D71A000E43B35 /* Sources */,
-				493CE9F3230D747C00E43B35 /* Main.storyboard */,
-				493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */,
-				493CE99A230D714800E43B35 /* AppDelegate.swift */,
-				493CE99C230D714800E43B35 /* ViewController.swift */,
-				493CE9D1230D71FC00E43B35 /* DistanceService.swift */,
-				493CE9D3230D720300E43B35 /* ARNode.swift */,
-				493CE9D7230D721B00E43B35 /* ARPart.swift */,
-				493CE9A9230D714900E43B35 /* Info.plist */,
-				493CE9A1230D714800E43B35 /* TreasureHunt.xcdatamodeld */,
+				4933C183231420FA00965996 /* Model */,
+				4933C1842314210600965996 /* View */,
+				4933C1852314210C00965996 /* Controller */,
+				4933C18F2314262700965996 /* Support files */,
 			);
 			path = TreasureHunt;
 			sourceTree = "<group>";
@@ -180,24 +252,24 @@
 			path = TreasureHuntUITests;
 			sourceTree = "<group>";
 		};
-		493CE9CB230D71A000E43B35 /* Sources */ = {
+		493CE9CB230D71A000E43B35 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				493CE9A4230D714900E43B35 /* Assets.xcassets */,
 				493CE9F5230D7AF600E43B35 /* 3DModels */,
 				493CE9DB230D742600E43B35 /* Music */,
-				493CE9CC230D71B300E43B35 /* Font */,
+				493CE9CC230D71B300E43B35 /* Fonts */,
 			);
-			path = Sources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		493CE9CC230D71B300E43B35 /* Font */ = {
+		493CE9CC230D71B300E43B35 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				493CE9CD230D71C400E43B35 /* big_noodle_titling_oblique.ttf */,
 				493CE9CE230D71C400E43B35 /* big_noodle_titling.ttf */,
 			);
-			path = Font;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		493CE9DB230D742600E43B35 /* Music */ = {
@@ -484,10 +556,18 @@
 			files = (
 				493CE9D4230D720300E43B35 /* ARNode.swift in Sources */,
 				493CE99D230D714800E43B35 /* ViewController.swift in Sources */,
-				493CE9D8230D721B00E43B35 /* ARPart.swift in Sources */,
+				4933C18D2314248200965996 /* TreasureHuntStateMachine.swift in Sources */,
+				4933C19D231438B600965996 /* HidingTreasure.swift in Sources */,
+				4933C19F2314392D00965996 /* LookingForTreasure.swift in Sources */,
 				493CE9D2230D71FC00E43B35 /* DistanceService.swift in Sources */,
+				4933C1872314214D00965996 /* Constants.swift in Sources */,
+				4933C198231437B700965996 /* GameScene.swift in Sources */,
+				4933C1952314349400965996 /* TreasureFound.swift in Sources */,
+				4933C19B2314387B00965996 /* AddingClues.swift in Sources */,
 				493CE99B230D714800E43B35 /* AppDelegate.swift in Sources */,
 				493CE9A3230D714800E43B35 /* TreasureHunt.xcdatamodeld in Sources */,
+				4933C18B2314245200965996 /* ClueType.swift in Sources */,
+				4933C1912314271A00965996 /* ARViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
