@@ -9,15 +9,16 @@
 import GameplayKit
 
 class LookingForTreasure: GKState {
-    var scene: ARSceneView
+    var scene: ARViewController
     
     init(scene: ARSceneView) {
-        self.scene = scene as! ARSceneView
+        self.scene = scene as! ARViewController
         super.init()
     }
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: LookingForTreasure")
+        self.scene.hideFarNodes()
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
