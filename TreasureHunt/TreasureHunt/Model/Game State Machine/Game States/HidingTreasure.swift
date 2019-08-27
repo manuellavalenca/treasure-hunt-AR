@@ -8,19 +8,25 @@
 import GameplayKit
 
 class HidingTreasure: GKState {
-    var scene: GameScene
+    var scene: ARSceneView
     
-    init(scene: GameScene) {
-        self.scene = scene as! GameScene
+    init(scene: ARSceneView) {
+        self.scene = scene as! ARSceneView
         super.init()
     }
     
     override func didEnter(from previousState: GKState?) {
-        
+        print("StateMachine: HidingTreasure")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return stateClass is AddingClues.Type
+        switch stateClass {
+        case is TreasureHidden.Type:
+            return true
+        case is MappingLost.Type:
+            return true
+        default:
+            return false
+        }
     }
-    
 }

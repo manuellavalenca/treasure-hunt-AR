@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameScene: ARSCNView {
+class ARSceneView: ARSCNView {
 
     /*
     // Only override draw() if you perform custom drawing.

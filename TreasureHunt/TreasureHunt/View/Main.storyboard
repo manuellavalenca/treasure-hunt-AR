@@ -349,7 +349,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bilhete_final" translatesAutoresizingMaskIntoConstraints="NO" id="owP-3u-ADU">
-                            <rect key="frame" x="0.0" y="18.5" width="236" height="310.00000000000045"/>
+                            <rect key="frame" x="0.0" y="18.5" width="236" height="310"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="310" id="5zI-0C-h22"/>
                                 <constraint firstAttribute="width" constant="236" id="mNC-ug-BEA"/>
@@ -428,7 +428,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bilhete_final" translatesAutoresizingMaskIntoConstraints="NO" id="3CC-h0-x7m">
-                            <rect key="frame" x="0.0" y="4" width="240" height="312.00000000000045"/>
+                            <rect key="frame" x="0.0" y="4" width="240" height="312"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="312" id="EJ2-ig-AmR"/>
                                 <constraint firstAttribute="width" constant="240" id="OVM-EC-yEN"/>

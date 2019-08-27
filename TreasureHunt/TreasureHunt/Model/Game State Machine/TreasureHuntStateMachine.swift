@@ -18,9 +18,6 @@ class TreasureHuntStateMachine: GKStateMachine {
         self.presenter = presenter
         
         // 2
-        self.kanjiStorage = kanjiStorage
-        
-        // 3
         super.init(states: states)
     }
 }

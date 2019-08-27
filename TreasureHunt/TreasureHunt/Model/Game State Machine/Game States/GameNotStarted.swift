@@ -1,14 +1,13 @@
 //
-//  LookingForTreasure.swift
+//  GameNotStarted.swift
 //  TreasureHunt
 //
-//  Created by Manuella Valença on 26/08/19.
+//  Created by Manuella Valença on 27/08/19.
 //  Copyright © 2019 Manuella Valença. All rights reserved.
 //
-
 import GameplayKit
 
-class LookingForTreasure: GKState {
+class GameNotStarted: GKState {
     var scene: ARSceneView
     
     init(scene: ARSceneView) {
@@ -17,17 +16,18 @@ class LookingForTreasure: GKState {
     }
     
     override func didEnter(from previousState: GKState?) {
-        print("StateMachine: LookingForTreasure")
+        print("StateMachine: GameNotStarted")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is TreasureFound.Type:
+        case is CameraNotAuthorized.Type:
             return true
-        case is MappingLost.Type:
+        case is HidingTreasure.Type:
             return true
         default:
             return false
         }
     }
+    
 }

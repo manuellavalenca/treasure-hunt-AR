@@ -1,14 +1,14 @@
 //
-//  File.swift
+//  CameraNotAuthorized.swift
 //  TreasureHunt
 //
-//  Created by Manuella Valença on 26/08/19.
+//  Created by Manuella Valença on 27/08/19.
 //  Copyright © 2019 Manuella Valença. All rights reserved.
 //
 
 import GameplayKit
 
-class TreasureFound: GKState {
+class CameraNotAuthorized: GKState {
     var scene: ARSceneView
     
     init(scene: ARSceneView) {
@@ -17,11 +17,11 @@ class TreasureFound: GKState {
     }
     
     override func didEnter(from previousState: GKState?) {
-        print("StateMachine: TreasureFound")
+        print("StateMachine: CameraNotAuthorized")
     }
     
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return stateClass is GameNotStarted.Type
-    }
+//    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+//        return stateClass is HidingTreasure.Type
+//    }
     
 }

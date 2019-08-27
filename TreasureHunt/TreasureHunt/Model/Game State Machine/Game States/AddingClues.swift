@@ -9,19 +9,26 @@
 import GameplayKit
 
 class AddingClues: GKState {
-    var scene: GameScene
+    var scene: ARSceneView
     
-    init(scene: GameScene) {
-        self.scene = scene as! GameScene
+    init(scene: ARSceneView) {
+        self.scene = scene as! ARSceneView
         super.init()
     }
     
     override func didEnter(from previousState: GKState?) {
-        
+        print("StateMachine: AddingClues")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return stateClass is LookingForTreasure.Type
+        switch stateClass {
+        case is LookingForTreasure.Type:
+            return true
+        case is HidingTreasure.Type:
+            return true
+        default:
+            return false
+        }
     }
     
 }
