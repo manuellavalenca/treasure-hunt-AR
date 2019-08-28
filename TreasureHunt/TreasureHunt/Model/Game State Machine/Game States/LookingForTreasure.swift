@@ -9,10 +9,10 @@
 import GameplayKit
 
 class LookingForTreasure: GKState {
-    var scene: ARViewController
+    var scene: ARGameSceneView
     
-    init(scene: ARSceneView) {
-        self.scene = scene as! ARViewController
+    init(scene: ARGameSceneView) {
+        self.scene = scene
         super.init()
     }
     

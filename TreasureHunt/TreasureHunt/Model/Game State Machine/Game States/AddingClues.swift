@@ -12,7 +12,7 @@ class AddingClues: GKState {
     var scene: ARSceneView
     
     init(scene: ARSceneView) {
-        self.scene = scene as! ARSceneView
+        self.scene = scene
         super.init()
     }
     

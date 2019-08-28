@@ -268,7 +268,6 @@
                         <outlet property="remarkTreasureLocationButton" destination="G0a-q9-pki" id="N9p-Xs-b3i"/>
                         <outlet property="rightClueButton" destination="Vrf-hU-FHQ" id="Okh-2d-JDc"/>
                         <outlet property="rightLabel" destination="a2k-zs-uu0" id="EX7-uA-kj6"/>
-                        <outlet property="sceneView" destination="JMR-jP-kDj" id="LQH-dF-hdN"/>
                         <outlet property="seekCharacterView" destination="jvh-WK-yng" id="DiN-Tb-Yy0"/>
                         <outlet property="seekView" destination="Nu5-qv-S94" id="Pfh-ZY-Eyf"/>
                         <outlet property="seloButton" destination="YMj-G5-ntP" id="YQA-bp-IGX"/>
@@ -730,7 +729,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-jP-kDj">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-jP-kDj" customClass="ARGameSceneView" customModule="TreasureHunt" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
                         </subviews>
@@ -741,6 +740,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RCq-Sj-zrj"/>
                     </view>
+                    <connections>
+                        <outlet property="sceneView" destination="JMR-jP-kDj" id="Stc-HP-9tS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3W-NZ-Av4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

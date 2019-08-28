@@ -8,10 +8,10 @@
 import GameplayKit
 
 class GameNotStarted: GKState {
-    var scene: ARSceneView
+    var scene: ARGameSceneView
     
-    init(scene: ARSceneView) {
-        self.scene = scene as! ARSceneView
+    init(scene: ARGameSceneView) {
+        self.scene = scene
         super.init()
     }
     
