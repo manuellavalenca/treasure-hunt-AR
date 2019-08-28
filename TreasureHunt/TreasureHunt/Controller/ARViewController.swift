@@ -11,10 +11,12 @@ import ARKit
 import SceneKit
 import AVFoundation
 import GameplayKit
+import NotificationCenter
 
 class ARViewController: UIViewController {
     @IBOutlet weak var sceneView: ARGameSceneView!
     var movedForForeground = false
+   var notificationCenter = NotificationCenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,11 @@ class ARViewController: UIViewController {
         sceneView.stateMachine.enter(HidingTreasure.self)
         addTapGestureToSceneView()
         sceneView.configureLighting()
+        addObservers()
+    }
+    
+    func addObservers() {
+//        notificationCenter.addObserver(self, selector: #selector(lerolero(_:)), name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,13 +43,15 @@ class ARViewController: UIViewController {
     
     @objc func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let addingNode = sceneView.createNodeAR()
-        print("addingNode é \(addingNode.type)")
         guard let hitTestResult = sceneView.makeHitTestResult(with: recognizer) else { return }
         addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(sceneView.transformNode(in: hitTestResult)))
         addingNode.node.position = sceneView.calculatePosition(in: hitTestResult)
         sceneView.nodesArray.append(addingNode)
-        print("Node pra adicionar: \(addingNode.node.name!)")
         sceneView.scene.rootNode.addChildNode(addingNode.node)
+    }
+    
+    @objc func showCluesButtons() {
+        print("SHOWING CLUES BUTTONS")
     }
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

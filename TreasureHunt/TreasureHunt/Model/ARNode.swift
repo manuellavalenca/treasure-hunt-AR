@@ -38,8 +38,7 @@ class NodeAR {
             trailScene = SCNScene(named: "xis.scn")!
             self.type = .treasure
         }
-        var trailNode = trailScene.rootNode.childNodes[0]
-        trailNode.name = "nodinho"
+        let trailNode = trailScene.rootNode.childNodes[0]
         for child in trailScene.rootNode.childNodes {
             self.node.addChildNode(child)
         }

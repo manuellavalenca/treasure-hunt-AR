@@ -53,6 +53,7 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
         switch stateMachine.currentState {
         case is HidingTreasure:
             addingNode = NodeAR(type: .treasure)
+            self.stateMachine.enter(TreasureHidden.self)
         case is AddingTextClue:
             addingNode = NodeAR(type: .textClue)
         case is AddingSignClue:
@@ -163,5 +164,8 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
         //                node.node.isHidden = false
         //            }
         //        }
+    }
+    
+    func deleteNode() {
     }
 }
