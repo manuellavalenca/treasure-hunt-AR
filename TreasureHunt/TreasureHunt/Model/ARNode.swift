@@ -24,29 +24,26 @@ class NodeAR {
     
     func makeNode(as nodeType: NodeType) -> SCNNode {
         var trailScene = SCNScene()
-        var trailNode = SCNNode()
-        self.node = trailNode
         switch nodeType {
         case .signClue:
             trailScene = SCNScene(named: "placaright.scn")!
             self.type = .signClue
-            trailNode = trailScene.rootNode.childNodes[0]
         case .trailClue:
             trailScene = SCNScene(named: "trilhamadeira.scn")!
             self.type = .trailClue
-            trailNode = trailScene.rootNode.childNodes[0]
         case .textClue:
             trailScene = SCNScene(named: "scroll.scn")!
             self.type = .textClue
-            trailNode = trailScene.rootNode.childNodes[0]
         case .treasure:
             trailScene = SCNScene(named: "xis.scn")!
-            trailNode = trailScene.rootNode.childNodes[0]
             self.type = .treasure
         }
+        var trailNode = trailScene.rootNode.childNodes[0]
+        trailNode.name = "nodinho"
         for child in trailScene.rootNode.childNodes {
             self.node.addChildNode(child)
         }
+        self.node = trailNode
         return self.node
     }
 }

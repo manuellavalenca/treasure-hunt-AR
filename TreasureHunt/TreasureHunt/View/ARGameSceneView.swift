@@ -18,26 +18,34 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
     let cameraRelativePosition = SCNVector3(0, 0, -0.1)
     
     func setUpSceneView() {
+        self.initiateStateMachine()
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
+        self.showsStatistics = true
         self.session.run(configuration)
         self.delegate = self
         self.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        
+    }
+    
+    func initiateStateMachine() {
+        let gameNotStarted = GameNotStarted(scene: self)
+        let cameraNotAuthorized = CameraNotAuthorized(scene: self)
+        let hidingTreasure = HidingTreasure(scene: self)
+        let treasureHidden = TreasureHidden(scene: self)
+        let addingTrailClue = AddingTrailClue(scene: self)
+        let addingSignClue = AddingSignClue(scene: self)
+        let addingTextClue = AddingTextClue(scene: self)
+        let lookingForTreasure = LookingForTreasure(scene: self)
+        let treasureFound = TreasureFound(scene: self)
+        let mappingLost = MappingLost(scene: self)
+        
+        self.stateMachine = GKStateMachine(states: [gameNotStarted, cameraNotAuthorized, hidingTreasure,treasureHidden,addingTrailClue,addingSignClue,addingTextClue, lookingForTreasure,treasureFound,mappingLost])
     }
     
     func configureLighting() {
         self.autoenablesDefaultLighting = true
         self.automaticallyUpdatesLighting = true
-    }
-    
-    // MARK: - Touch in screen
-    @objc func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
-        let addingNode = createNodeAR()
-        guard let hitTestResult = makeHitTestResult(with: recognizer) else { return }
-        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(transformNode(in: hitTestResult)))
-        addingNode.node.position = calculatePosition(in: hitTestResult)
-        self.nodesArray.append(addingNode)
-        self.scene.rootNode.addChildNode(addingNode.node)
     }
     
     func createNodeAR() -> NodeAR {
@@ -88,29 +96,6 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
         return simd_mul(hitTestResult.worldTransform, rotate)
     }
     
-    func checkNodes(in result: SCNHitTestResult) {
-        //
-        //        sceneView.scene.enumerateChildNodes { (node: SKNode, nil) in
-        //            if result == node.position {
-        //                if node.name == treasure {
-        //                    print("ACHOU O TESOURO")
-        //                } else if node.name == text {
-        //                    print("MOSTRAR TEXTO DA DICA")
-        //                }
-        //            }
-        //        }
-    }
-    
-    func hideFarNodes() {
-        for node in nodesArray {
-            if node.distance > 3.5 {
-                node.node.isHidden = true
-            } else {
-                node.node.isHidden = false
-            }
-        }
-    }
-    
     // MARK: - Detect plane in scene
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
@@ -155,5 +140,28 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
                 node.distance = DistanceService.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance)
             }
         }
+    }
+    
+    func checkNodes(in result: SCNHitTestResult) {
+        //
+        //        sceneView.scene.enumerateChildNodes { (node: SKNode, nil) in
+        //            if result == node.position {
+        //                if node.name == treasure {
+        //                    print("ACHOU O TESOURO")
+        //                } else if node.name == text {
+        //                    print("MOSTRAR TEXTO DA DICA")
+        //                }
+        //            }
+        //        }
+    }
+    
+    func hideFarNodes() {
+        //        for node in nodesArray {
+        //            if node.distance > 3.5 {
+        //                node.node.isHidden = true
+        //            } else {
+        //                node.node.isHidden = false
+        //            }
+        //        }
     }
 }
