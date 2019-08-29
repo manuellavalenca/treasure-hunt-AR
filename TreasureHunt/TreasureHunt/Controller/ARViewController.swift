@@ -9,26 +9,24 @@
 import UIKit
 import ARKit
 import SceneKit
-import AVFoundation
 import GameplayKit
-import NotificationCenter
 
 class ARViewController: UIViewController {
+    
+    // IBOutlets
     @IBOutlet weak var sceneView: ARGameSceneView!
+    
+    // Variables
     var movedForForeground = false
-   var notificationCenter = NotificationCenter()
+    var notificationCenter = NotificationCenter()
+    var cluesButtonsView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.setUpSceneView()
-        sceneView.stateMachine.enter(HidingTreasure.self)
-        addTapGestureToSceneView()
+        self.sceneView.stateMachine.enter(HidingTreasure.self)
         sceneView.configureLighting()
         addObservers()
-    }
-    
-    func addObservers() {
-//        notificationCenter.addObserver(self, selector: #selector(lerolero(_:)), name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,22 +34,20 @@ class ARViewController: UIViewController {
         sceneView.session.pause()
     }
     
-    func addTapGestureToSceneView() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ARViewController.addNode(withGestureRecognizer:)))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    @objc func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
-        let addingNode = sceneView.createNodeAR()
-        guard let hitTestResult = sceneView.makeHitTestResult(with: recognizer) else { return }
-        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(sceneView.transformNode(in: hitTestResult)))
-        addingNode.node.position = sceneView.calculatePosition(in: hitTestResult)
-        sceneView.nodesArray.append(addingNode)
-        sceneView.scene.rootNode.addChildNode(addingNode.node)
+    func addObservers() {
+        NotificationsFacade.shared.addObserver(self, selector: #selector(showCluesButtons), name: .showCluesButtons, object: nil)
+        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTextClue), name: .addingTextClue, object: nil)
     }
     
     @objc func showCluesButtons() {
-        print("SHOWING CLUES BUTTONS")
+        cluesButtonsView = Bundle.main.loadNibNamed("CluesButtons",
+                                                            owner: nil,
+                                                            options: nil)?.first as! UIView
+        self.view.addSubview(cluesButtonsView!)
+    }
+    
+    @objc func changeToAddingTextClue() {
+        self.sceneView.stateMachine.enter(AddingTextClue.self)
     }
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

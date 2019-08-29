@@ -21,6 +21,9 @@
 		4933C1AB2315662600965996 /* AddingTextClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1AA2315662600965996 /* AddingTextClue.swift */; };
 		4933C1AD2315693700965996 /* TreasureHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1AC2315693700965996 /* TreasureHidden.swift */; };
 		4933C1AF23169E4D00965996 /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1AE23169E4D00965996 /* NodeType.swift */; };
+		4933C1F12317F2AB00965996 /* NotificationsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1F02317F2AB00965996 /* NotificationsFacade.swift */; };
+		4933C1F72318027500965996 /* CluesButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1F62318027500965996 /* CluesButtonsView.swift */; };
+		4933C1F9231802A500965996 /* CluesButtons.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933C1F8231802A500965996 /* CluesButtons.xib */; };
 		493CE99B230D714800E43B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE99A230D714800E43B35 /* AppDelegate.swift */; };
 		493CE99D230D714800E43B35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493CE99C230D714800E43B35 /* ViewController.swift */; };
 		493CE9A3230D714800E43B35 /* TreasureHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 493CE9A1230D714800E43B35 /* TreasureHunt.xcdatamodeld */; };
@@ -82,6 +85,9 @@
 		4933C1AA2315662600965996 /* AddingTextClue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingTextClue.swift; sourceTree = "<group>"; };
 		4933C1AC2315693700965996 /* TreasureHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreasureHidden.swift; sourceTree = "<group>"; };
 		4933C1AE23169E4D00965996 /* NodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeType.swift; sourceTree = "<group>"; };
+		4933C1F02317F2AB00965996 /* NotificationsFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsFacade.swift; sourceTree = "<group>"; };
+		4933C1F62318027500965996 /* CluesButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CluesButtonsView.swift; sourceTree = "<group>"; };
+		4933C1F8231802A500965996 /* CluesButtons.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CluesButtons.xib; sourceTree = "<group>"; };
 		493CE997230D714800E43B35 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		493CE99A230D714800E43B35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		493CE99C230D714800E43B35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,11 +158,11 @@
 		4933C183231420FA00965996 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4933C1932314347700965996 /* Game State Machine */,
 				493CE9D3230D720300E43B35 /* ARNode.swift */,
 				493CE9D1230D71FC00E43B35 /* DistanceService.swift */,
 				4933C1862314214D00965996 /* Constants.swift */,
 				4933C1AE23169E4D00965996 /* NodeType.swift */,
+				4933C1F02317F2AB00965996 /* NotificationsFacade.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +173,7 @@
 				493CE9F3230D747C00E43B35 /* Main.storyboard */,
 				493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */,
 				4933C197231437B700965996 /* ARGameSceneView.swift */,
+				4933C1FA23180FBA00965996 /* CluesButtons */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +181,7 @@
 		4933C1852314210C00965996 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4933C1932314347700965996 /* Game State Machine */,
 				493CE99C230D714800E43B35 /* ViewController.swift */,
 				4933C1902314271A00965996 /* ARViewController.swift */,
 			);
@@ -213,6 +221,15 @@
 				4933C1A02315579B00965996 /* MappingLost.swift */,
 			);
 			path = "Game States";
+			sourceTree = "<group>";
+		};
+		4933C1FA23180FBA00965996 /* CluesButtons */ = {
+			isa = PBXGroup;
+			children = (
+				4933C1F62318027500965996 /* CluesButtonsView.swift */,
+				4933C1F8231802A500965996 /* CluesButtons.xib */,
+			);
+			path = CluesButtons;
 			sourceTree = "<group>";
 		};
 		493CE98E230D714800E43B35 = {
@@ -455,6 +472,7 @@
 				493CE9DA230D734A00E43B35 /* LaunchScreen.storyboard in Resources */,
 				493CEA05230D7AF600E43B35 /* xis-baked.001.png in Resources */,
 				493CE9CF230D71CC00E43B35 /* big_noodle_titling_oblique.ttf in Resources */,
+				4933C1F9231802A500965996 /* CluesButtons.xib in Resources */,
 				493CE9E8230D742600E43B35 /* bensound-sunny.mp3 in Resources */,
 				493CEA00230D7AF600E43B35 /* woodplank 4 baked colourseta.png in Resources */,
 				493CEA08230D7AF600E43B35 /* placaright.scn in Resources */,
@@ -571,8 +589,10 @@
 			files = (
 				4933C1AB2315662600965996 /* AddingTextClue.swift in Sources */,
 				493CE9D4230D720300E43B35 /* ARNode.swift in Sources */,
+				4933C1F12317F2AB00965996 /* NotificationsFacade.swift in Sources */,
 				4933C1A3231558D900965996 /* GameNotStarted.swift in Sources */,
 				4933C1A12315579B00965996 /* MappingLost.swift in Sources */,
+				4933C1F72318027500965996 /* CluesButtonsView.swift in Sources */,
 				493CE99D230D714800E43B35 /* ViewController.swift in Sources */,
 				4933C19D231438B600965996 /* HidingTreasure.swift in Sources */,
 				4933C19F2314392D00965996 /* LookingForTreasure.swift in Sources */,

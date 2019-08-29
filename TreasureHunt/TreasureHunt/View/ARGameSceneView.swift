@@ -12,10 +12,11 @@ import GameplayKit
 
 class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
     var nodesArray: [NodeAR] = []
-    var stateMachine: GKStateMachine!
     var startingPositionNode: SCNNode?
     var endingPositionNode: SCNNode?
     let cameraRelativePosition = SCNVector3(0, 0, -0.1)
+    var stateMachine: GKStateMachine!
+    var tapGestureRecognizer = UITapGestureRecognizer()
     
     func setUpSceneView() {
         self.initiateStateMachine()
@@ -25,7 +26,6 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
         self.session.run(configuration)
         self.delegate = self
         self.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        
     }
     
     func initiateStateMachine() {
@@ -40,7 +40,16 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
         let treasureFound = TreasureFound(scene: self)
         let mappingLost = MappingLost(scene: self)
         
-        self.stateMachine = GKStateMachine(states: [gameNotStarted, cameraNotAuthorized, hidingTreasure,treasureHidden,addingTrailClue,addingSignClue,addingTextClue, lookingForTreasure,treasureFound,mappingLost])
+        self.stateMachine = GKStateMachine(states: [gameNotStarted,
+                                                    cameraNotAuthorized,
+                                                    hidingTreasure,
+                                                    treasureHidden,
+                                                    addingTrailClue,
+                                                    addingSignClue,
+                                                    addingTextClue,
+                                                    lookingForTreasure,
+                                                    treasureFound,
+                                                    mappingLost])
     }
     
     func configureLighting() {
@@ -64,6 +73,29 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
             addingNode = NodeAR(type: .trailClue)
         }
         return addingNode
+    }
+    
+    func addTapGestureToSceneView() {
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ARGameSceneView.verifyAction(for:)))
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func verifyAction(for gestureRecognizer: UIGestureRecognizer) {
+        if self.stateMachine.currentState is HidingTreasure ||
+            self.stateMachine.currentState is AddingTextClue ||
+            self.stateMachine.currentState is AddingTrailClue ||
+            self.stateMachine.currentState is AddingSignClue {
+            self.addNode(withGestureRecognizer: gestureRecognizer)
+        }
+    }
+    
+    func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
+        let addingNode = self.createNodeAR()
+        guard let hitTestResult = self.makeHitTestResult(with: recognizer) else { return }
+        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(self.transformNode(in: hitTestResult)))
+        addingNode.node.position = self.calculatePosition(in: hitTestResult)
+        self.nodesArray.append(addingNode)
+        self.scene.rootNode.addChildNode(addingNode.node)
     }
     
     func makeHitTestResult(with recognizer: UIGestureRecognizer) -> ARHitTestResult? {
