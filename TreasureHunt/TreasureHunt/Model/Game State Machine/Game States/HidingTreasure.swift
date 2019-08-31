@@ -1,13 +1,14 @@
 //
-//  TreasureHidden.swift
+//  HidingTreasure.swift
 //  TreasureHunt
 //
-//  Created by Manuella Valença on 27/08/19.
+//  Created by Manuella Valença on 26/08/19.
 //  Copyright © 2019 Manuella Valença. All rights reserved.
 //
 import GameplayKit
+import ARKit
 
-class TreasureHidden: GKState {
+class HidingTreasure: GKState {
     var scene: ARGameSceneView
     
     init(scene: ARGameSceneView) {
@@ -16,17 +17,15 @@ class TreasureHidden: GKState {
     }
     
     override func didEnter(from previousState: GKState?) {
-        print("StateMachine: TreasureHidden")
-        NotificationsFacade.shared.post(name: .showCluesButtons, object: nil)
+        print("StateMachine: HidingTreasure")
+        NotificationsFacade.shared.post(name: .hidingTreasure, object: nil)
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is AddingTrailClue.Type:
+        case is TreasureHidden.Type:
             return true
-        case is AddingSignClue.Type:
-            return true
-        case is AddingTextClue.Type:
+        case is MappingLost.Type:
             return true
         default:
             return false

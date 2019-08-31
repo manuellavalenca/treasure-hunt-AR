@@ -19,14 +19,16 @@ class ARViewController: UIViewController {
     // Variables
     var movedForForeground = false
     var notificationCenter = NotificationCenter()
-    var cluesButtonsView: UIView?
+    var cluesButtonsView: CluesButtons?
+    var tapView: TapView?
+    var tapGestureRecognizer: UITapGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addObservers()
         sceneView.setUpSceneView()
         self.sceneView.stateMachine.enter(HidingTreasure.self)
         sceneView.configureLighting()
-        addObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -35,15 +37,32 @@ class ARViewController: UIViewController {
     }
     
     func addObservers() {
-        NotificationsFacade.shared.addObserver(self, selector: #selector(showCluesButtons), name: .showCluesButtons, object: nil)
+        NotificationsFacade.shared.addObserver(self, selector: #selector(addTapView), name: .hidingTreasure, object: nil)
+        NotificationsFacade.shared.addObserver(self, selector: #selector(showCluesButtons), name: .treasureHidden, object: nil)
         NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTextClue), name: .addingTextClue, object: nil)
     }
     
+    @objc func addTapView() {
+        self.tapView = TapView(frame: UIScreen.main.bounds)
+        self.sceneView.addSubview(self.tapView!)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(manageTap(for:)))
+        self.tapView!.addGestureRecognizer(tapGestureRecognizer!)
+    }
+    
+    @objc func manageTap(for gestureRecognizer: UIGestureRecognizer) {
+        if self.sceneView.stateMachine.currentState is HidingTreasure ||
+            self.sceneView.stateMachine.currentState is AddingTextClue ||
+            self.sceneView.stateMachine.currentState is AddingTrailClue ||
+            self.sceneView.stateMachine.currentState is AddingSignClue {
+            self.sceneView.addNode(withGestureRecognizer: gestureRecognizer)
+        }
+    }
+    
     @objc func showCluesButtons() {
-        cluesButtonsView = Bundle.main.loadNibNamed("CluesButtons",
-                                                            owner: nil,
-                                                            options: nil)?.first as! UIView
-        self.view.addSubview(cluesButtonsView!)
+        //self.tapView!.removeGestureRecognizer(self.tapGestureRecognizer!)
+        self.cluesButtonsView = CluesButtons(frame: CGRect(x: 100, y: 100, width: 250, height: 250))
+        self.sceneView.addSubview(self.cluesButtonsView!)
+        self.sceneView.bringSubviewToFront(self.cluesButtonsView!)
     }
     
     @objc func changeToAddingTextClue() {

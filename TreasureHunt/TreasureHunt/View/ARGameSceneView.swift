@@ -57,6 +57,15 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
         self.automaticallyUpdatesLighting = true
     }
     
+    func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
+        let addingNode = self.createNodeAR()
+        guard let hitTestResult = self.makeHitTestResult(with: recognizer) else { return }
+        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(self.transformNode(in: hitTestResult)))
+        addingNode.node.position = self.calculatePosition(in: hitTestResult)
+        self.nodesArray.append(addingNode)
+        self.scene.rootNode.addChildNode(addingNode.node)
+    }
+    
     func createNodeAR() -> NodeAR {
         var addingNode: NodeAR
         switch stateMachine.currentState {
@@ -73,29 +82,6 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
             addingNode = NodeAR(type: .trailClue)
         }
         return addingNode
-    }
-    
-    func addTapGestureToSceneView() {
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ARGameSceneView.verifyAction(for:)))
-        self.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    @objc func verifyAction(for gestureRecognizer: UIGestureRecognizer) {
-        if self.stateMachine.currentState is HidingTreasure ||
-            self.stateMachine.currentState is AddingTextClue ||
-            self.stateMachine.currentState is AddingTrailClue ||
-            self.stateMachine.currentState is AddingSignClue {
-            self.addNode(withGestureRecognizer: gestureRecognizer)
-        }
-    }
-    
-    func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
-        let addingNode = self.createNodeAR()
-        guard let hitTestResult = self.makeHitTestResult(with: recognizer) else { return }
-        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(self.transformNode(in: hitTestResult)))
-        addingNode.node.position = self.calculatePosition(in: hitTestResult)
-        self.nodesArray.append(addingNode)
-        self.scene.rootNode.addChildNode(addingNode.node)
     }
     
     func makeHitTestResult(with recognizer: UIGestureRecognizer) -> ARHitTestResult? {
