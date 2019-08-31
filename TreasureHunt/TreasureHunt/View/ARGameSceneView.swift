@@ -10,58 +10,74 @@ import UIKit
 import ARKit
 import GameplayKit
 
-class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
+class ARGameSceneView: ARSCNView {
     var nodesArray: [NodeAR] = []
     var startingPositionNode: SCNNode?
     var endingPositionNode: SCNNode?
     let cameraRelativePosition = SCNVector3(0, 0, -0.1)
     var stateMachine: GKStateMachine!
-    var tapGestureRecognizer = UITapGestureRecognizer()
+    var tapGestureRecognizer: UITapGestureRecognizer?
+    var tapView: TapView?
+    var cluesButtonsView: CluesButtons?
+    var endCluesButton: ARButton?
     
-    func setUpSceneView() {
-        self.initiateStateMachine()
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
-        self.showsStatistics = true
-        self.session.run(configuration)
-        self.delegate = self
-        self.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+    func addObservers() {
+        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTextClue), name: .addingTextClue, object: nil)
+        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTrailClue), name: .addingTrailClue, object: nil)
+        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingSignClue), name: .addingSignClue, object: nil)
     }
     
-    func initiateStateMachine() {
-        let gameNotStarted = GameNotStarted(scene: self)
-        let cameraNotAuthorized = CameraNotAuthorized(scene: self)
-        let hidingTreasure = HidingTreasure(scene: self)
-        let treasureHidden = TreasureHidden(scene: self)
-        let addingTrailClue = AddingTrailClue(scene: self)
-        let addingSignClue = AddingSignClue(scene: self)
-        let addingTextClue = AddingTextClue(scene: self)
-        let lookingForTreasure = LookingForTreasure(scene: self)
-        let treasureFound = TreasureFound(scene: self)
-        let mappingLost = MappingLost(scene: self)
-        
-        self.stateMachine = GKStateMachine(states: [gameNotStarted,
-                                                    cameraNotAuthorized,
-                                                    hidingTreasure,
-                                                    treasureHidden,
-                                                    addingTrailClue,
-                                                    addingSignClue,
-                                                    addingTextClue,
-                                                    lookingForTreasure,
-                                                    treasureFound,
-                                                    mappingLost])
+    @objc func changeToAddingTextClue() {
+        self.stateMachine.enter(AddingTextClue.self)
     }
     
-    func configureLighting() {
-        self.autoenablesDefaultLighting = true
-        self.automaticallyUpdatesLighting = true
+    @objc func changeToAddingTrailClue() {
+        self.stateMachine.enter(AddingTrailClue.self)
+    }
+    
+    @objc func changeToAddingSignClue() {
+        self.stateMachine.enter(AddingSignClue.self)
+    }
+    
+    @objc func addTapView() {
+        self.tapView = TapView(frame: UIScreen.main.bounds)
+        self.addSubview(self.tapView!)
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(manageTap(for:)))
+        self.tapView!.addGestureRecognizer(tapGestureRecognizer!)
+    }
+    
+    @objc func manageTap(for gestureRecognizer: UIGestureRecognizer) {
+        if self.stateMachine.currentState is HidingTreasure ||
+            self.stateMachine.currentState is AddingTextClue ||
+            self.stateMachine.currentState is AddingTrailClue ||
+            self.stateMachine.currentState is AddingSignClue {
+            self.addNode(withGestureRecognizer: gestureRecognizer)
+        }
+    }
+    
+    @objc func showCluesButtons() {
+        self.cluesButtonsView = CluesButtons(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
+        self.addSubview(self.cluesButtonsView!)
+        self.bringSubviewToFront(self.cluesButtonsView!)
+        createEndCluesButton()
+    }
+    
+    func createEndCluesButton() {
+        endCluesButton = ARButton(frame: CGRect(x: self.cluesButtonsView!.frame.maxX + 30, y: self.cluesButtonsView!.frame.midY, width: 80, height: 40))
+        endCluesButton!.setTitle("Finalizar", for: .normal)
+        endCluesButton!.addTarget(self, action: #selector(endCluesButtonTapped), for: .touchUpInside)
+        self.addSubview(endCluesButton!)
+    }
+    
+    @objc func endCluesButtonTapped() {
+        self.stateMachine.enter(LookingForTreasure.self)
     }
     
     func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let addingNode = self.createNodeAR()
         guard let hitTestResult = self.makeHitTestResult(with: recognizer) else { return }
-        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(self.transformNode(in: hitTestResult)))
-        addingNode.node.position = self.calculatePosition(in: hitTestResult)
+        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(ARService.transformNode(in: hitTestResult, target: self)))
+        addingNode.node.position = ARService.calculatePosition(in: hitTestResult)
         self.nodesArray.append(addingNode)
         self.scene.rootNode.addChildNode(addingNode.node)
     }
@@ -100,65 +116,6 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
             hitTestResults = self.hitTest(tapLocation, types: .featurePoint)
         }
         return hitTestResults.first
-    }
-    
-    func calculatePosition(in hitTestResult: ARHitTestResult) -> SCNVector3 {
-        let translation = hitTestResult.worldTransform.translation
-        let xAxis = translation.x
-        let yAxis = translation.y
-        let zAxis = translation.z
-        return SCNVector3(xAxis, yAxis, zAxis)
-    }
-    
-    func transformNode(in hitTestResult: ARHitTestResult) -> simd_float4x4 {
-        let rotate = simd_float4x4(SCNMatrix4MakeRotation(self.session.currentFrame!.camera.eulerAngles.y, 0, 1, 0))
-        return simd_mul(hitTestResult.worldTransform, rotate)
-    }
-    
-    // MARK: - Detect plane in scene
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        let width = CGFloat(planeAnchor.extent.x)
-        let height = CGFloat(planeAnchor.extent.z)
-        let plane = SCNPlane(width: width, height: height)
-        plane.materials.first?.diffuse.contents = Colors.transparentLightGray
-        let planeNode = SCNNode(geometry: plane)
-        let xAxis = CGFloat(planeAnchor.center.x)
-        let yAxis = CGFloat(planeAnchor.center.y)
-        let zAxis = CGFloat(planeAnchor.center.z)
-        planeNode.position = SCNVector3(xAxis, yAxis, zAxis)
-        planeNode.eulerAngles.x = -.pi / 2
-        node.addChildNode(planeNode)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as?  ARPlaneAnchor,
-            let planeNode = node.childNodes.first,
-            let plane = planeNode.geometry as? SCNPlane
-            else { return }
-        let width = CGFloat(planeAnchor.extent.x)
-        let height = CGFloat(planeAnchor.extent.z)
-        plane.width = width
-        plane.height = height
-        let xAxis = CGFloat(planeAnchor.center.x)
-        let yAxis = CGFloat(planeAnchor.center.y)
-        let zAxis = CGFloat(planeAnchor.center.z)
-        planeNode.position = SCNVector3(xAxis, yAxis, zAxis)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        for node in nodesArray {
-            startingPositionNode = node.node
-            if startingPositionNode != nil && endingPositionNode != nil {
-                return
-            }
-            guard let xDistance = DistanceService.distance3(fromStartingPositionNode: startingPositionNode, onView: self, cameraRelativePosition: cameraRelativePosition)?.x else {return}
-            guard let yDistance = DistanceService.distance3(fromStartingPositionNode: startingPositionNode, onView: self, cameraRelativePosition: cameraRelativePosition)?.y else {return}
-            guard let zDistance = DistanceService.distance3(fromStartingPositionNode: startingPositionNode, onView: self, cameraRelativePosition: cameraRelativePosition)?.z else {return}
-            DispatchQueue.main.async {
-                node.distance = DistanceService.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance)
-            }
-        }
     }
     
     func checkNodes(in result: SCNHitTestResult) {

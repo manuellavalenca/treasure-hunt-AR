@@ -18,7 +18,7 @@ class HidingTreasure: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: HidingTreasure")
-        NotificationsFacade.shared.post(name: .hidingTreasure, object: nil)
+        self.scene.addTapView()
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

@@ -10,9 +10,6 @@ import UIKit
 
 class CluesButtons: UIView {
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var textButton: UIButton!
-    @IBOutlet weak var signButton: UIButton!
-    @IBOutlet weak var trailButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,8 +34,10 @@ class CluesButtons: UIView {
     }
     
     @IBAction func signCluePressed(_ sender: Any) {
+        NotificationsFacade.shared.post(name: .addingSignClue, object: nil)
     }
     
     @IBAction func trailCluePressed(_ sender: Any) {
+        NotificationsFacade.shared.post(name: .addingTrailClue, object: nil)
     }
 }

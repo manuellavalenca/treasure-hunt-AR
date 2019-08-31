@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import ARKit
 
-class DistanceService: NSObject {
+class ARService: NSObject {
     static func distance3(fromStartingPositionNode: SCNNode?, onView: ARSCNView, cameraRelativePosition: SCNVector3) -> SCNVector3? {
         guard let startingPosition = fromStartingPositionNode else { return nil }
         guard let currentFrame = onView.session.currentFrame else { return nil }
@@ -30,5 +30,18 @@ class DistanceService: NSObject {
     
     static func distance(xAxis: Float, yAxis: Float, zAxis: Float) -> Float {
         return (sqrtf(xAxis * xAxis + yAxis * yAxis + zAxis * zAxis))
+    }
+    
+    static func calculatePosition(in hitTestResult: ARHitTestResult) -> SCNVector3 {
+        let translation = hitTestResult.worldTransform.translation
+        let xAxis = translation.x
+        let yAxis = translation.y
+        let zAxis = translation.z
+        return SCNVector3(xAxis, yAxis, zAxis)
+    }
+    
+    static func transformNode(in hitTestResult: ARHitTestResult, target scene: ARSCNView) -> simd_float4x4 {
+        let rotate = simd_float4x4(SCNMatrix4MakeRotation(scene.session.currentFrame!.camera.eulerAngles.y, 0, 1, 0))
+        return simd_mul(hitTestResult.worldTransform, rotate)
     }
 }
