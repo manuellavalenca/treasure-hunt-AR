@@ -36,6 +36,7 @@ extension ARGameSceneView: ARSCNViewDelegate {
         let zAxis = CGFloat(planeAnchor.center.z)
         planeNode.position = SCNVector3(xAxis, yAxis, zAxis)
         planeNode.eulerAngles.x = -.pi / 2
+        planeNode.name = "planeNode"
         node.addChildNode(planeNode)
     }
     

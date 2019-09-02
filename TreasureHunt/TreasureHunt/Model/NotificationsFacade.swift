@@ -22,12 +22,6 @@ class NotificationsFacade {
 }
 
 extension Notification.Name {
-    static var hidingTreasure: Notification.Name {
-        return .init("StateMachine.hidingTreasure")
-    }
-    static var treasureHidden: Notification.Name {
-        return .init("StateMachine.treasureHidden")
-    }
     static var addingTextClue: Notification.Name {
         return .init("StateMachine.addingTextClue")
     }

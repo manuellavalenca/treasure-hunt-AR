@@ -42,16 +42,21 @@ class ARGameSceneView: ARSCNView {
     @objc func addTapView() {
         self.tapView = TapView(frame: UIScreen.main.bounds)
         self.addSubview(self.tapView!)
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(manageTap(for:)))
+        if self.stateMachine.currentState is LookingForTreasure {
+            tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(checkNodes(with:)))
+        } else {
+            tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNode(withGestureRecognizer:)))
+        }
         self.tapView!.addGestureRecognizer(tapGestureRecognizer!)
     }
     
-    @objc func manageTap(for gestureRecognizer: UIGestureRecognizer) {
-        if self.stateMachine.currentState is HidingTreasure ||
-            self.stateMachine.currentState is AddingTextClue ||
-            self.stateMachine.currentState is AddingTrailClue ||
-            self.stateMachine.currentState is AddingSignClue {
-            self.addNode(withGestureRecognizer: gestureRecognizer)
+    @objc func checkNodes(with recognizer: UITapGestureRecognizer) {
+        let tapLocation = recognizer.location(in: self)
+        let hitTestResults = self.hitTest(tapLocation, options: nil)
+        if let tappedNode = hitTestResults.first?.node {
+            if tappedNode.name == "treasure" {
+                print("TREASURE FOUNDDD")
+            }
         }
     }
     
@@ -73,7 +78,7 @@ class ARGameSceneView: ARSCNView {
         self.stateMachine.enter(LookingForTreasure.self)
     }
     
-    func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
+    @objc func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let addingNode = self.createNodeAR()
         guard let hitTestResult = self.makeHitTestResult(with: recognizer) else { return }
         addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(ARService.transformNode(in: hitTestResult, target: self)))
@@ -83,6 +88,7 @@ class ARGameSceneView: ARSCNView {
     }
     
     func createNodeAR() -> NodeAR {
+        var trailScene = SCNScene()
         var addingNode: NodeAR
         switch stateMachine.currentState {
         case is HidingTreasure:
@@ -95,7 +101,7 @@ class ARGameSceneView: ARSCNView {
         case is AddingTrailClue:
             addingNode = NodeAR(type: .trailClue)
         default:
-            addingNode = NodeAR(type: .trailClue)
+            addingNode = NodeAR(type: .treasure)
         }
         return addingNode
     }
@@ -116,19 +122,6 @@ class ARGameSceneView: ARSCNView {
             hitTestResults = self.hitTest(tapLocation, types: .featurePoint)
         }
         return hitTestResults.first
-    }
-    
-    func checkNodes(in result: SCNHitTestResult) {
-        //
-        //        sceneView.scene.enumerateChildNodes { (node: SKNode, nil) in
-        //            if result == node.position {
-        //                if node.name == treasure {
-        //                    print("ACHOU O TESOURO")
-        //                } else if node.name == text {
-        //                    print("MOSTRAR TEXTO DA DICA")
-        //                }
-        //            }
-        //        }
     }
     
     func hideFarNodes() {

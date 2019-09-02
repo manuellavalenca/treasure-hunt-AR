@@ -19,9 +19,22 @@ class LookingForTreasure: GKState {
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: LookingForTreasure")
         self.scene.hideFarNodes()
+        self.removeCluesButtons()
+        self.scene.addTapView()
+    }
+    
+    func removeCluesButtons() {
         self.scene.cluesButtonsView!.removeFromSuperview()
         self.scene.endCluesButton!.removeFromSuperview()
         self.scene.tapView!.removeFromSuperview()
+    }
+    
+    func hidePlanes() {
+        self.scene.scene.rootNode.enumerateChildNodes { (node, stop) in
+            if node.name == "planeNode" {
+                node.isHidden = true
+            }
+        }
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

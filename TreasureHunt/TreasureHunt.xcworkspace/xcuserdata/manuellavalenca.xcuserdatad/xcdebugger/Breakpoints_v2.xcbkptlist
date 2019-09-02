@@ -185,13 +185,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TreasureHunt/View/CluesButtons/CluesButtons.swift"
-            timestampString = "588916152.256659"
+            filePath = "TreasureHunt/View/ARGameSceneView.swift"
+            timestampString = "589132207.6517971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "textCluePressed(_:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "checkNodes(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
