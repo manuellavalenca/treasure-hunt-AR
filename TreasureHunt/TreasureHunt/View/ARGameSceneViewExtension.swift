@@ -65,8 +65,9 @@ extension ARGameSceneView: ARSCNViewDelegate {
             guard let yDistance = ARService.distance3(fromStartingPositionNode: startingPositionNode, onView: self, cameraRelativePosition: cameraRelativePosition)?.y else {return}
             guard let zDistance = ARService.distance3(fromStartingPositionNode: startingPositionNode, onView: self, cameraRelativePosition: cameraRelativePosition)?.z else {return}
             DispatchQueue.main.async {
-                node.distance = ARService.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance)
+                node.distance = Double(ARService.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance))
             }
         }
+        self.hideFarNodes()
     }
 }

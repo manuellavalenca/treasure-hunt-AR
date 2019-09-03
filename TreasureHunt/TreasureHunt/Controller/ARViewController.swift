@@ -22,16 +22,21 @@ class ARViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sceneView.addObservers()
+        self.sceneView.addButtonObservers()
         self.initiateStateMachine()
         self.sceneView.setUpSceneView()
         self.sceneView.configureLighting()
         self.sceneView.stateMachine.enter(HidingTreasure.self)
+        self.addObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+    }
+    
+    func addObservers() {
+        NotificationsFacade.shared.addObserver(self, selector: #selector(goToHomeScreen), name: .treasureFound, object: nil)
     }
     
     func initiateStateMachine() {
@@ -56,17 +61,7 @@ class ARViewController: UIViewController {
                                                     treasureFound,
                                                     mappingLost])
     }
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch = touches.first {
-//            if touch.view == self.sceneView {
-//                let viewTouchLocation:CGPoint = touch.location(in: sceneView)
-//                guard let result = sceneView.hitTest(viewTouchLocation, options: nil).first else {
-//                    return
-//                }
-//                if sceneView.stateMachine.currentState is LookingForTreasure {
-//                    sceneView.checkNodes(in: result)
-//                }
-//            }
-//        }
-//    }
+    @objc func goToHomeScreen() {
+        self.performSegue(withIdentifier: "goToHomeScreen", sender: nil)
+    }
 }

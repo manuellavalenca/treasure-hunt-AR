@@ -18,7 +18,7 @@ class HidingTreasure: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: HidingTreasure")
-        self.scene.addTapView()
+        self.scene.addCluesTapGesture()
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

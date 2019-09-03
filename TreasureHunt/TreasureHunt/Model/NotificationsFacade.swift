@@ -31,4 +31,7 @@ extension Notification.Name {
     static var addingSignClue: Notification.Name {
         return .init("StateMachine.addingSignClue")
     }
+    static var treasureFound: Notification.Name {
+        return .init("StateMachine.treasureFound")
+    }
 }

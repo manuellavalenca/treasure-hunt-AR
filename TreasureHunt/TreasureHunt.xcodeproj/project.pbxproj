@@ -24,7 +24,6 @@
 		4933C1F12317F2AB00965996 /* NotificationsFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1F02317F2AB00965996 /* NotificationsFacade.swift */; };
 		4933C1F72318027500965996 /* CluesButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1F62318027500965996 /* CluesButtons.swift */; };
 		4933C1F9231802A500965996 /* CluesButtons.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933C1F8231802A500965996 /* CluesButtons.xib */; };
-		4933C1FC231970E500965996 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C1FB231970E500965996 /* TapView.swift */; };
 		4933C1FF231A09A600965996 /* PopupAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933C1FE231A09A600965996 /* PopupAlert.xib */; };
 		4933C201231A09B800965996 /* PopupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4933C200231A09B800965996 /* PopupAlert.swift */; };
 		4933C204231A0AEC00965996 /* GamePrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4933C203231A0AEC00965996 /* GamePrompt.xib */; };
@@ -101,7 +100,6 @@
 		4933C1F02317F2AB00965996 /* NotificationsFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsFacade.swift; sourceTree = "<group>"; };
 		4933C1F62318027500965996 /* CluesButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CluesButtons.swift; sourceTree = "<group>"; };
 		4933C1F8231802A500965996 /* CluesButtons.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CluesButtons.xib; sourceTree = "<group>"; };
-		4933C1FB231970E500965996 /* TapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
 		4933C1FE231A09A600965996 /* PopupAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupAlert.xib; sourceTree = "<group>"; };
 		4933C200231A09B800965996 /* PopupAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAlert.swift; sourceTree = "<group>"; };
 		4933C203231A0AEC00965996 /* GamePrompt.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamePrompt.xib; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 				493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */,
 				4933C197231437B700965996 /* ARGameSceneView.swift */,
 				4933C21C231A229500965996 /* ARGameSceneViewExtension.swift */,
-				4933C1FB231970E500965996 /* TapView.swift */,
 				4933C21A231A115E00965996 /* ARButton.swift */,
 			);
 			path = View;
@@ -688,7 +685,6 @@
 				4933C1AF23169E4D00965996 /* NodeType.swift in Sources */,
 				4933C1A5231564CC00965996 /* CameraNotAuthorized.swift in Sources */,
 				493CE9D2230D71FC00E43B35 /* ARService.swift in Sources */,
-				4933C1FC231970E500965996 /* TapView.swift in Sources */,
 				4933C217231A102000965996 /* AnimationsView.swift in Sources */,
 				4933C1872314214D00965996 /* Constants.swift in Sources */,
 				4933C198231437B700965996 /* ARGameSceneView.swift in Sources */,

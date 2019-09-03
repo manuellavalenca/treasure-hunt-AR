@@ -53,6 +53,7 @@
                     </view>
                     <connections>
                         <outlet property="sceneView" destination="JMR-jP-kDj" id="Stc-HP-9tS"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToHomeScreen" id="qHH-zB-gEC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3W-NZ-Av4" userLabel="First Responder" sceneMemberID="firstResponder"/>

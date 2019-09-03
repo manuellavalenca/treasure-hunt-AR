@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 
 class NodeAR {
-    var distance: Float?
+    var distance: Double = 0.0
     var text: String?
     var type: NodeType = .treasure
     var node: SCNNode = SCNNode()
@@ -21,16 +21,12 @@ class NodeAR {
         switch type {
         case .signClue:
             trailScene = SCNScene(named: "placaright.scn")!
-            self.node.name = "signClue"
         case .trailClue:
             trailScene = SCNScene(named: "trilhamadeira.scn")!
-            self.node.name = "trailClue"
         case .textClue:
             trailScene = SCNScene(named: "scroll.scn")!
-            self.node.name = "textClue"
         case .treasure:
             trailScene = SCNScene(named: "xis.scn")!
-            self.node.name = "treasure"
         }
         let trailNode = trailScene.rootNode.childNodes[0]
         for child in trailScene.rootNode.childNodes {

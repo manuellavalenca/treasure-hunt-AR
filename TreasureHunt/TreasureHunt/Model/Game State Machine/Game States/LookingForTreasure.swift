@@ -7,6 +7,7 @@
 //
 
 import GameplayKit
+import ARKit
 
 class LookingForTreasure: GKState {
     var scene: ARGameSceneView
@@ -18,18 +19,21 @@ class LookingForTreasure: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: LookingForTreasure")
-        self.scene.hideFarNodes()
         self.removeCluesButtons()
-        self.scene.addTapView()
+        self.scene.addSearchTapGesture()
+        self.removePlanes()
+        self.scene.debugOptions = []
     }
     
     func removeCluesButtons() {
         self.scene.cluesButtonsView!.removeFromSuperview()
         self.scene.endCluesButton!.removeFromSuperview()
-        self.scene.tapView!.removeFromSuperview()
     }
     
-    func hidePlanes() {
+    func removePlanes() {
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = []
+        self.scene.session.run(configuration)
         self.scene.scene.rootNode.enumerateChildNodes { (node, stop) in
             if node.name == "planeNode" {
                 node.isHidden = true

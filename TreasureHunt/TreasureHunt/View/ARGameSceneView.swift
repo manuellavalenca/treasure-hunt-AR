@@ -17,11 +17,10 @@ class ARGameSceneView: ARSCNView {
     let cameraRelativePosition = SCNVector3(0, 0, -0.1)
     var stateMachine: GKStateMachine!
     var tapGestureRecognizer: UITapGestureRecognizer?
-    var tapView: TapView?
     var cluesButtonsView: CluesButtons?
     var endCluesButton: ARButton?
     
-    func addObservers() {
+    func addButtonObservers() {
         NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTextClue), name: .addingTextClue, object: nil)
         NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTrailClue), name: .addingTrailClue, object: nil)
         NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingSignClue), name: .addingSignClue, object: nil)
@@ -39,23 +38,35 @@ class ARGameSceneView: ARSCNView {
         self.stateMachine.enter(AddingSignClue.self)
     }
     
-    @objc func addTapView() {
-        self.tapView = TapView(frame: UIScreen.main.bounds)
-        self.addSubview(self.tapView!)
-        if self.stateMachine.currentState is LookingForTreasure {
-            tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(checkNodes(with:)))
-        } else {
-            tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNode(withGestureRecognizer:)))
+    @objc func addCluesTapGesture() {
+        self.removeCurrentGestureRecognizer()
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNode(withGestureRecognizer:)))
+        self.addGestureRecognizer(tapGestureRecognizer!)
+    }
+    
+    @objc func addSearchTapGesture() {
+        self.removeCurrentGestureRecognizer()
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(checkNodes(with:)))
+        self.addGestureRecognizer(tapGestureRecognizer!)
+    }
+    
+    func removeCurrentGestureRecognizer() {
+        if let gesture = self.tapGestureRecognizer {
+            self.removeGestureRecognizer(gesture)
         }
-        self.tapView!.addGestureRecognizer(tapGestureRecognizer!)
     }
     
     @objc func checkNodes(with recognizer: UITapGestureRecognizer) {
         let tapLocation = recognizer.location(in: self)
         let hitTestResults = self.hitTest(tapLocation, options: nil)
         if let tappedNode = hitTestResults.first?.node {
-            if tappedNode.name == "treasure" {
-                print("TREASURE FOUNDDD")
+            for nodear in self.nodesArray {
+                if nodear.node.contains(tappedNode){
+                    if nodear.type == .treasure {
+                        self.stateMachine.enter(TreasureFound.self)
+                        print("ACHOU O TESOUROO")
+                    }
+                }
             }
         }
     }
@@ -125,13 +136,13 @@ class ARGameSceneView: ARSCNView {
     }
     
     func hideFarNodes() {
-        //        for node in nodesArray {
-        //            if node.distance > 3.5 {
-        //                node.node.isHidden = true
-        //            } else {
-        //                node.node.isHidden = false
-        //            }
-        //        }
+        for node in nodesArray {
+            if node.distance > 3.5 {
+                node.node.isHidden = true
+            } else {
+                node.node.isHidden = false
+            }
+        }
     }
     
     func deleteNode() {
