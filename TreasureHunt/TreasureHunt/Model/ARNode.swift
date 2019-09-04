@@ -24,7 +24,7 @@ class NodeAR {
         case .trailClue:
             trailScene = SCNScene(named: "trilhamadeira.scn")!
         case .textClue:
-            trailScene = SCNScene(named: "scroll.scn")!
+            trailScene = SCNScene(named: "bottleanimated.scn")!
         case .treasure:
             trailScene = SCNScene(named: "xis.scn")!
         }
