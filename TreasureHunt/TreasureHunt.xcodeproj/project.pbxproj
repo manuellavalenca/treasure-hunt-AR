@@ -93,6 +93,10 @@
 		BD1836DD286A8AC92B7AD3DD /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
 		C80CB7C5B3B049638BBF1953 /* Pods-TreasureHuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHuntTests.debug.xcconfig"; path = "Target Support Files/Pods-TreasureHuntTests/Pods-TreasureHuntTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D708D2D00F78018919CF46ED /* Pods_TreasureHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3EFED62231FEC4D008C4412 /* trail.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = trail.scn; sourceTree = "<group>"; };
+		F3EFED67231FF2B6008C4412 /* xmark.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = xmark.scn; sourceTree = "<group>"; };
+		F3EFED68231FF8D7008C4412 /* bottleanimated.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = bottleanimated.scn; sourceTree = "<group>"; };
+		F3EFED69231FFB5F008C4412 /* signanimated.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = signanimated.scn; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,10 @@
 			isa = PBXGroup;
 			children = (
 				493CE9F6230D7AF600E43B35 /* woodplank 4 baked colourseta.png */,
+				F3EFED62231FEC4D008C4412 /* trail.scn */,
+				F3EFED67231FF2B6008C4412 /* xmark.scn */,
+				F3EFED68231FF8D7008C4412 /* bottleanimated.scn */,
+				F3EFED69231FFB5F008C4412 /* signanimated.scn */,
 				493CE9F7230D7AF600E43B35 /* placareal.dae */,
 				493CE9F8230D7AF600E43B35 /* xis.scn */,
 				493CE9F9230D7AF600E43B35 /* trilhamadeira.scn */,
