@@ -8,9 +8,9 @@
 import GameplayKit
 
 class GameNotStarted: GKState {
-    var scene: ARGameSceneView
+    var scene: ARViewController
     
-    init(scene: ARGameSceneView) {
+    init(scene: ARViewController) {
         self.scene = scene
         super.init()
     }

@@ -9,9 +9,9 @@ import GameplayKit
 import ARKit
 
 class HidingTreasure: GKState {
-    var scene: ARGameSceneView
+    var scene: ARViewController
     
-    init(scene: ARGameSceneView) {
+    init(scene: ARViewController) {
         self.scene = scene
         super.init()
     }
@@ -19,7 +19,8 @@ class HidingTreasure: GKState {
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: HidingTreasure")
         self.scene.addCluesTapGesture()
-        self.scene.showGamePrompt(text: "eaeeee oia o hunt pooo")
+        self.showGamePrompt()
+        self.scene.sceneView.gamePromptView?.typeLetter(text: "Bem-vindo ao Hunt. Marque o lugar em que o tesouro foi escondido tocando na tela.")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -31,5 +32,11 @@ class HidingTreasure: GKState {
         default:
             return false
         }
+    }
+    
+    func showGamePrompt() {
+        self.scene.sceneView.gamePromptView = GamePrompt(frame: CGRect(x: 0, y: 0, width: 414, height: 115))
+        self.scene.sceneView.addSubview(self.scene.sceneView.gamePromptView!)
+        self.scene.sceneView.bringSubviewToFront(self.scene.sceneView.gamePromptView!)
     }
 }

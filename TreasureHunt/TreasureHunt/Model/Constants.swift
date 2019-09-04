@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 import SceneKit
 
-struct Colors {
-    static var transparentLightGray = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 0.1)
+struct Constants {
+    struct Colors {
+        static var transparentLightGray = UIColor(red: 90/255, green: 200/255, blue: 250/255, alpha: 0.1)
+    }
 }
 
 extension float4x4 {

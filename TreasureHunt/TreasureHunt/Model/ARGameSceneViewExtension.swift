@@ -29,7 +29,7 @@ extension ARGameSceneView: ARSCNViewDelegate {
         let width = CGFloat(planeAnchor.extent.x)
         let height = CGFloat(planeAnchor.extent.z)
         let plane = SCNPlane(width: width, height: height)
-        plane.materials.first?.diffuse.contents = Colors.transparentLightGray
+        plane.materials.first?.diffuse.contents = Constants.colors.transparentLightGray
         let planeNode = SCNNode(geometry: plane)
         let xAxis = CGFloat(planeAnchor.center.x)
         let yAxis = CGFloat(planeAnchor.center.y)

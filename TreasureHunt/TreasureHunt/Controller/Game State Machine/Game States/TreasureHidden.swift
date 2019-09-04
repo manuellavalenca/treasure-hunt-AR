@@ -8,9 +8,9 @@
 import GameplayKit
 
 class TreasureHidden: GKState {
-    var scene: ARGameSceneView
+    var scene: ARViewController
     
-    init(scene: ARGameSceneView) {
+    init(scene: ARViewController) {
         self.scene = scene
         super.init()
     }
@@ -18,6 +18,8 @@ class TreasureHidden: GKState {
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: TreasureHidden")
         self.showCluesButtons()
+        self.createEndCluesButton()
+        self.scene.sceneView.gamePromptView?.typeLetter(text: "Vamos começar a criar o mapa. Escolha um tipo de dica e crie vários caminhos. Quando terminar, pressione finalizar.")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -34,17 +36,16 @@ class TreasureHidden: GKState {
     }
     
     func showCluesButtons() {
-        self.scene.cluesButtonsView = CluesButtons(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
-        self.scene.addSubview(self.scene.cluesButtonsView!)
-        self.scene.bringSubviewToFront(self.scene.cluesButtonsView!)
-        self.createEndCluesButton()
+        self.scene.sceneView.cluesButtonsView = CluesButtons(frame: CGRect(x: 0, y: self.scene.sceneView.frame.maxY - 500, width: 250, height: 250))
+        self.scene.sceneView.addSubview(self.scene.sceneView.cluesButtonsView!)
+        self.scene.sceneView.bringSubviewToFront(self.scene.sceneView.cluesButtonsView!)
     }
     
     func createEndCluesButton() {
-        self.scene.endCluesButton = ARButton(frame: CGRect(x: self.scene.cluesButtonsView!.frame.maxX + 30, y: self.scene.cluesButtonsView!.frame.midY, width: 80, height: 40))
-        self.scene.endCluesButton!.setTitle("Finalizar", for: .normal)
-        self.scene.endCluesButton!.addTarget(self, action: #selector(endCluesButtonTapped), for: .touchUpInside)
-        self.scene.addSubview(self.scene.endCluesButton!)
+        self.scene.sceneView.endCluesButton = ARButton(frame: CGRect(x: self.scene.sceneView.cluesButtonsView!.frame.maxX + 30, y: self.scene.sceneView.cluesButtonsView!.frame.midY, width: 80, height: 40))
+        self.scene.sceneView.endCluesButton!.setTitle("Finalizar", for: .normal)
+        self.scene.sceneView.endCluesButton!.addTarget(self, action: #selector(endCluesButtonTapped), for: .touchUpInside)
+        self.scene.sceneView.addSubview(self.scene.sceneView.endCluesButton!)
     }
     
     @objc func endCluesButtonTapped() {

@@ -13,6 +13,8 @@ class GamePrompt: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var contentLabel: UILabel!
     var text = ""
+    var timer: Timer!
+    var counter = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,5 +33,23 @@ class GamePrompt: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(contentView)
         contentLabel.text! = ""
+    }
+    
+    func typeLetter(text: String) {
+        self.counter = 0
+        self.contentLabel.text = ""
+        self.text = text
+        self.timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(animation), userInfo: nil, repeats: false)
+    }
+    
+    @objc func animation() {
+        if self.counter < self.text.count {
+            let index = self.text.index(self.text.startIndex, offsetBy: self.counter)
+            self.contentLabel.text! += String(self.text[index])
+            let randomInterval = Double((arc4random_uniform(3)+1))/20
+            self.timer.invalidate()
+            self.timer = Timer.scheduledTimer(timeInterval: randomInterval, target: self, selector: #selector(animation), userInfo: nil, repeats: false)
+        }
+        self.counter += 1
     }
 }
