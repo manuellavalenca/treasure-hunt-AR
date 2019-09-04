@@ -56,6 +56,10 @@
 		493CEA07230D7AF600E43B35 /* xis.dae in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FD230D7AF600E43B35 /* xis.dae */; };
 		493CEA08230D7AF600E43B35 /* placaright.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FE230D7AF600E43B35 /* placaright.scn */; };
 		493CEA09230D7AF600E43B35 /* scroll.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FF230D7AF600E43B35 /* scroll.scn */; };
+		495D9B9423200C4700290F3F /* trail.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED62231FEC4D008C4412 /* trail.scn */; };
+		495D9B9523200C5600290F3F /* xmark.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED67231FF2B6008C4412 /* xmark.scn */; };
+		495D9B9623200C5800290F3F /* bottleanimated.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED68231FF8D7008C4412 /* bottleanimated.scn */; };
+		495D9B9723200C5B00290F3F /* signanimated.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED69231FFB5F008C4412 /* signanimated.scn */; };
 		75D434BF4F544B5BF7D0C844 /* Pods_TreasureHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D708D2D00F78018919CF46ED /* Pods_TreasureHunt.framework */; };
 		89AC0582978D723E14E6A367 /* Pods_TreasureHuntTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A788A7D387B66BE9A8D3A2D /* Pods_TreasureHuntTests.framework */; };
 		AC970136717A7CE2FB5FFA7A /* Pods_TreasureHuntUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FB52027F73ADE9FB186BD0 /* Pods_TreasureHuntUITests.framework */; };
@@ -143,7 +147,7 @@
 		BD1836DD286A8AC92B7AD3DD /* Pods-TreasureHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHunt.release.xcconfig"; path = "Target Support Files/Pods-TreasureHunt/Pods-TreasureHunt.release.xcconfig"; sourceTree = "<group>"; };
 		C80CB7C5B3B049638BBF1953 /* Pods-TreasureHuntTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHuntTests.debug.xcconfig"; path = "Target Support Files/Pods-TreasureHuntTests/Pods-TreasureHuntTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D708D2D00F78018919CF46ED /* Pods_TreasureHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3EFED62231FEC4D008C4412 /* trail.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = trail.scn; path = ../../../Sources/3DModels/trail.scn; sourceTree = "<group>"; };
+		F3EFED62231FEC4D008C4412 /* trail.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = trail.scn; sourceTree = "<group>"; };
 		F3EFED67231FF2B6008C4412 /* xmark.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = xmark.scn; sourceTree = "<group>"; };
 		F3EFED68231FF8D7008C4412 /* bottleanimated.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = bottleanimated.scn; sourceTree = "<group>"; };
 		F3EFED69231FFB5F008C4412 /* signanimated.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = signanimated.scn; sourceTree = "<group>"; };
@@ -529,19 +533,23 @@
 			files = (
 				493CEA04230D7AF600E43B35 /* placaleft.scn in Resources */,
 				493CE9A5230D714900E43B35 /* Assets.xcassets in Resources */,
+				495D9B9523200C5600290F3F /* xmark.scn in Resources */,
 				493CEA06230D7AF600E43B35 /* torabaked.png in Resources */,
 				493CE9D0230D71CF00E43B35 /* big_noodle_titling.ttf in Resources */,
 				493CEA03230D7AF600E43B35 /* trilhamadeira.scn in Resources */,
+				495D9B9723200C5B00290F3F /* signanimated.scn in Resources */,
 				493CE9F4230D747C00E43B35 /* Main.storyboard in Resources */,
 				493CEA01230D7AF600E43B35 /* placareal.dae in Resources */,
 				493CEA02230D7AF600E43B35 /* xis.scn in Resources */,
 				493CEA09230D7AF600E43B35 /* scroll.scn in Resources */,
+				495D9B9423200C4700290F3F /* trail.scn in Resources */,
 				4933C20D231A0E6700965996 /* TreasureFound.xib in Resources */,
 				493CE9DA230D734A00E43B35 /* LaunchScreen.storyboard in Resources */,
 				493CEA05230D7AF600E43B35 /* xis-baked.001.png in Resources */,
 				4933C204231A0AEC00965996 /* GamePrompt.xib in Resources */,
 				4933C212231A0E8C00965996 /* MapLost.xib in Resources */,
 				4933C1FF231A09A600965996 /* PopupAlert.xib in Resources */,
+				495D9B9623200C5800290F3F /* bottleanimated.scn in Resources */,
 				493CE9CF230D71CC00E43B35 /* big_noodle_titling_oblique.ttf in Resources */,
 				4933C1F9231802A500965996 /* CluesButtons.xib in Resources */,
 				493CE9E8230D742600E43B35 /* bensound-sunny.mp3 in Resources */,

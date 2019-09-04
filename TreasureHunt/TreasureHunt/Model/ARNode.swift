@@ -20,13 +20,13 @@ class NodeAR {
         self.type = type
         switch type {
         case .signClue:
-            trailScene = SCNScene(named: "placaright.scn")!
+            trailScene = SCNScene(named: "signanimated.scn")!
         case .trailClue:
-            trailScene = SCNScene(named: "trilhamadeira.scn")!
+            trailScene = SCNScene(named: "trail.scn")!
         case .textClue:
             trailScene = SCNScene(named: "bottleanimated.scn")!
         case .treasure:
-            trailScene = SCNScene(named: "xis.scn")!
+            trailScene = SCNScene(named: "xmark.scn")!
         }
         let trailNode = trailScene.rootNode.childNodes[0]
         for child in trailScene.rootNode.childNodes {
