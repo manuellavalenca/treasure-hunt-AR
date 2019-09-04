@@ -18,33 +18,39 @@ class ARGameSceneView: ARSCNView {
     var stateMachine: GKStateMachine!
     var tapGestureRecognizer: UITapGestureRecognizer?
     var cluesButtonsView: CluesButtons?
+    var gamePromptView: GamePrompt?
     var endCluesButton: ARButton?
+    var timer: Timer!
+    var counter = 0
     
-    func addButtonObservers() {
-        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTextClue), name: .addingTextClue, object: nil)
-        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTrailClue), name: .addingTrailClue, object: nil)
-        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingSignClue), name: .addingSignClue, object: nil)
+    func showGamePrompt(text: String) {
+        self.gamePromptView = GamePrompt(frame: CGRect(x: 0, y: 0, width: 414, height: 115))
+        self.gamePromptView!.text = text
+        self.addSubview(self.gamePromptView!)
+        self.bringSubviewToFront(self.gamePromptView!)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(typeLetter), userInfo: nil, repeats: false)
     }
     
-    @objc func changeToAddingTextClue() {
-        self.stateMachine.enter(AddingTextClue.self)
+    @objc func typeLetter() {
+        let text = self.gamePromptView!.text
+        if(self.counter < text.count) {
+            let index = text.index(text.startIndex, offsetBy: self.counter)
+            self.gamePromptView!.contentLabel.text! += String(text[index])
+            print(text[index])
+            let randomInterval = Double((arc4random_uniform(8)+1))/20
+            self.timer.invalidate()
+            self.timer = Timer.scheduledTimer(timeInterval: randomInterval, target: self, selector: #selector(typeLetter), userInfo: nil, repeats: false)
+        }
+        self.counter += 1
     }
     
-    @objc func changeToAddingTrailClue() {
-        self.stateMachine.enter(AddingTrailClue.self)
-    }
-    
-    @objc func changeToAddingSignClue() {
-        self.stateMachine.enter(AddingSignClue.self)
-    }
-    
-    @objc func addCluesTapGesture() {
+    func addCluesTapGesture() {
         self.removeCurrentGestureRecognizer()
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addNode(withGestureRecognizer:)))
         self.addGestureRecognizer(tapGestureRecognizer!)
     }
     
-    @objc func addSearchTapGesture() {
+    func addSearchTapGesture() {
         self.removeCurrentGestureRecognizer()
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(checkNodes(with:)))
         self.addGestureRecognizer(tapGestureRecognizer!)
@@ -61,7 +67,7 @@ class ARGameSceneView: ARSCNView {
         let hitTestResults = self.hitTest(tapLocation, options: nil)
         if let tappedNode = hitTestResults.first?.node {
             for nodear in self.nodesArray {
-                if nodear.node.contains(tappedNode){
+                if nodear.node.contains(tappedNode) {
                     if nodear.type == .treasure {
                         self.stateMachine.enter(TreasureFound.self)
                         print("ACHOU O TESOUROO")
@@ -69,24 +75,6 @@ class ARGameSceneView: ARSCNView {
                 }
             }
         }
-    }
-    
-    @objc func showCluesButtons() {
-        self.cluesButtonsView = CluesButtons(frame: CGRect(x: 0, y: 0, width: 250, height: 250))
-        self.addSubview(self.cluesButtonsView!)
-        self.bringSubviewToFront(self.cluesButtonsView!)
-        createEndCluesButton()
-    }
-    
-    func createEndCluesButton() {
-        endCluesButton = ARButton(frame: CGRect(x: self.cluesButtonsView!.frame.maxX + 30, y: self.cluesButtonsView!.frame.midY, width: 80, height: 40))
-        endCluesButton!.setTitle("Finalizar", for: .normal)
-        endCluesButton!.addTarget(self, action: #selector(endCluesButtonTapped), for: .touchUpInside)
-        self.addSubview(endCluesButton!)
-    }
-    
-    @objc func endCluesButtonTapped() {
-        self.stateMachine.enter(LookingForTreasure.self)
     }
     
     @objc func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
@@ -99,7 +87,6 @@ class ARGameSceneView: ARSCNView {
     }
     
     func createNodeAR() -> NodeAR {
-        var trailScene = SCNScene()
         var addingNode: NodeAR
         switch stateMachine.currentState {
         case is HidingTreasure:
@@ -146,5 +133,6 @@ class ARGameSceneView: ARSCNView {
     }
     
     func deleteNode() {
+        // PSIU
     }
 }

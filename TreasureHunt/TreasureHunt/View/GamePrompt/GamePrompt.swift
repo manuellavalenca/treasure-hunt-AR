@@ -11,6 +11,8 @@ import UIKit
 
 class GamePrompt: UIView {
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var contentLabel: UILabel!
+    var text = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,5 +30,6 @@ class GamePrompt: UIView {
         contentView.clipsToBounds = true
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(contentView)
+        contentLabel.text! = ""
     }
 }

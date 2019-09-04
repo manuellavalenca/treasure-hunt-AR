@@ -13,8 +13,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     @objc func appWillEnterForeground() {

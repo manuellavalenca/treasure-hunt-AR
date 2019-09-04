@@ -22,7 +22,6 @@ class ARViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sceneView.addButtonObservers()
         self.initiateStateMachine()
         self.sceneView.setUpSceneView()
         self.sceneView.configureLighting()
@@ -36,6 +35,9 @@ class ARViewController: UIViewController {
     }
     
     func addObservers() {
+        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTextClue), name: .addingTextClue, object: nil)
+        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingTrailClue), name: .addingTrailClue, object: nil)
+        NotificationsFacade.shared.addObserver(self, selector: #selector(changeToAddingSignClue), name: .addingSignClue, object: nil)
         NotificationsFacade.shared.addObserver(self, selector: #selector(goToHomeScreen), name: .treasureFound, object: nil)
     }
     
@@ -61,6 +63,19 @@ class ARViewController: UIViewController {
                                                     treasureFound,
                                                     mappingLost])
     }
+    
+    @objc func changeToAddingTextClue() {
+        self.sceneView.stateMachine.enter(AddingTextClue.self)
+    }
+    
+    @objc func changeToAddingTrailClue() {
+        self.sceneView.stateMachine.enter(AddingTrailClue.self)
+    }
+    
+    @objc func changeToAddingSignClue() {
+        self.sceneView.stateMachine.enter(AddingSignClue.self)
+    }
+    
     @objc func goToHomeScreen() {
         self.performSegue(withIdentifier: "goToHomeScreen", sender: nil)
     }

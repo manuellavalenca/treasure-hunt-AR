@@ -34,7 +34,7 @@ class LookingForTreasure: GKState {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = []
         self.scene.session.run(configuration)
-        self.scene.scene.rootNode.enumerateChildNodes { (node, stop) in
+        self.scene.scene.rootNode.enumerateChildNodes { (node, _) in
             if node.name == "planeNode" {
                 node.isHidden = true
             }

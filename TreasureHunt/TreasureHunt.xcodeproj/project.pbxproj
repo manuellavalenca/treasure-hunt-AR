@@ -182,7 +182,6 @@
 		4933C183231420FA00965996 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4933C1932314347700965996 /* Game State Machine */,
 				493CE9D3230D720300E43B35 /* ARNode.swift */,
 				493CE9D1230D71FC00E43B35 /* ARService.swift */,
 				4933C1862314214D00965996 /* Constants.swift */,
@@ -195,10 +194,10 @@
 		4933C1842314210600965996 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4933C202231A0ADD00965996 /* GamePrompt */,
 				4933C215231A100400965996 /* AnimationsView */,
 				4933C210231A0E7900965996 /* MapLost */,
 				4933C20B231A0E4900965996 /* TreasureFound */,
-				4933C202231A0ADD00965996 /* GamePrompt */,
 				4933C1FD231A098700965996 /* PopupAlert */,
 				4933C1FA23180FBA00965996 /* CluesButtons */,
 				493CE9F3230D747C00E43B35 /* Main.storyboard */,
@@ -213,6 +212,7 @@
 		4933C1852314210C00965996 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4933C1932314347700965996 /* Game State Machine */,
 				493CE99C230D714800E43B35 /* ViewController.swift */,
 				4933C1902314271A00965996 /* ARViewController.swift */,
 			);
