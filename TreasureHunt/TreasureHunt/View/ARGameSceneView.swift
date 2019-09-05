@@ -10,7 +10,7 @@ import UIKit
 import ARKit
 import GameplayKit
 
-class ARGameSceneView: ARSCNView {
+class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
     var nodesArray: [NodeAR] = []
     var startingPositionNode: SCNNode?
     var endingPositionNode: SCNNode?
@@ -18,6 +18,8 @@ class ARGameSceneView: ARSCNView {
     var cluesButtonsView: CluesButtons?
     var gamePromptView: GamePrompt?
     var endCluesButton: ARButton?
+    var textClueView: TextClue?
+    var textFromClue: String?
     
     func hideFarNodes() {
         for node in nodesArray {
@@ -32,9 +34,7 @@ class ARGameSceneView: ARSCNView {
     func deleteNode() {
         // PSIU
     }
-}
-
-extension ARGameSceneView: ARSCNViewDelegate {
+    
     func setUpSceneView() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
@@ -96,4 +96,3 @@ extension ARGameSceneView: ARSCNViewDelegate {
         self.hideFarNodes()
     }
 }
-

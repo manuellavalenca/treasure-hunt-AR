@@ -46,20 +46,14 @@
 		493CE9DA230D734A00E43B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */; };
 		493CE9E8230D742600E43B35 /* bensound-sunny.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9DC230D742600E43B35 /* bensound-sunny.mp3 */; };
 		493CE9F4230D747C00E43B35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9F3230D747C00E43B35 /* Main.storyboard */; };
-		493CEA00230D7AF600E43B35 /* woodplank 4 baked colourseta.png in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9F6230D7AF600E43B35 /* woodplank 4 baked colourseta.png */; };
-		493CEA01230D7AF600E43B35 /* placareal.dae in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9F7230D7AF600E43B35 /* placareal.dae */; };
-		493CEA02230D7AF600E43B35 /* xis.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9F8230D7AF600E43B35 /* xis.scn */; };
-		493CEA03230D7AF600E43B35 /* trilhamadeira.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9F9230D7AF600E43B35 /* trilhamadeira.scn */; };
-		493CEA04230D7AF600E43B35 /* placaleft.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FA230D7AF600E43B35 /* placaleft.scn */; };
-		493CEA05230D7AF600E43B35 /* xis-baked.001.png in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FB230D7AF600E43B35 /* xis-baked.001.png */; };
-		493CEA06230D7AF600E43B35 /* torabaked.png in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FC230D7AF600E43B35 /* torabaked.png */; };
-		493CEA07230D7AF600E43B35 /* xis.dae in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FD230D7AF600E43B35 /* xis.dae */; };
-		493CEA08230D7AF600E43B35 /* placaright.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FE230D7AF600E43B35 /* placaright.scn */; };
-		493CEA09230D7AF600E43B35 /* scroll.scn in Resources */ = {isa = PBXBuildFile; fileRef = 493CE9FF230D7AF600E43B35 /* scroll.scn */; };
 		495D9B9423200C4700290F3F /* trail.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED62231FEC4D008C4412 /* trail.scn */; };
 		495D9B9523200C5600290F3F /* xmark.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED67231FF2B6008C4412 /* xmark.scn */; };
 		495D9B9623200C5800290F3F /* bottleanimated.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED68231FF8D7008C4412 /* bottleanimated.scn */; };
 		495D9B9723200C5B00290F3F /* signanimated.scn in Resources */ = {isa = PBXBuildFile; fileRef = F3EFED69231FFB5F008C4412 /* signanimated.scn */; };
+		495D9B9B23213A6D00290F3F /* TextClue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D9B9A23213A6D00290F3F /* TextClue.xib */; };
+		495D9B9D23213A7900290F3F /* TextClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495D9B9C23213A7900290F3F /* TextClue.swift */; };
+		495D9BA323214B4E00290F3F /* ShowTextClue.xib in Resources */ = {isa = PBXBuildFile; fileRef = 495D9BA223214B4E00290F3F /* ShowTextClue.xib */; };
+		495D9BA523214B5800290F3F /* ShowTextClue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495D9BA423214B5800290F3F /* ShowTextClue.swift */; };
 		75D434BF4F544B5BF7D0C844 /* Pods_TreasureHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D708D2D00F78018919CF46ED /* Pods_TreasureHunt.framework */; };
 		89AC0582978D723E14E6A367 /* Pods_TreasureHuntTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A788A7D387B66BE9A8D3A2D /* Pods_TreasureHuntTests.framework */; };
 		AC970136717A7CE2FB5FFA7A /* Pods_TreasureHuntUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52FB52027F73ADE9FB186BD0 /* Pods_TreasureHuntUITests.framework */; };
@@ -129,16 +123,10 @@
 		493CE9D9230D734900E43B35 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		493CE9DC230D742600E43B35 /* bensound-sunny.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-sunny.mp3"; sourceTree = "<group>"; };
 		493CE9F3230D747C00E43B35 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		493CE9F6230D7AF600E43B35 /* woodplank 4 baked colourseta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woodplank 4 baked colourseta.png"; sourceTree = "<group>"; };
-		493CE9F7230D7AF600E43B35 /* placareal.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = placareal.dae; sourceTree = "<group>"; };
-		493CE9F8230D7AF600E43B35 /* xis.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = xis.scn; sourceTree = "<group>"; };
-		493CE9F9230D7AF600E43B35 /* trilhamadeira.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = trilhamadeira.scn; sourceTree = "<group>"; };
-		493CE9FA230D7AF600E43B35 /* placaleft.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = placaleft.scn; sourceTree = "<group>"; };
-		493CE9FB230D7AF600E43B35 /* xis-baked.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xis-baked.001.png"; sourceTree = "<group>"; };
-		493CE9FC230D7AF600E43B35 /* torabaked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = torabaked.png; sourceTree = "<group>"; };
-		493CE9FD230D7AF600E43B35 /* xis.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = xis.dae; sourceTree = "<group>"; };
-		493CE9FE230D7AF600E43B35 /* placaright.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = placaright.scn; sourceTree = "<group>"; };
-		493CE9FF230D7AF600E43B35 /* scroll.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = scroll.scn; sourceTree = "<group>"; };
+		495D9B9A23213A6D00290F3F /* TextClue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextClue.xib; sourceTree = "<group>"; };
+		495D9B9C23213A7900290F3F /* TextClue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClue.swift; sourceTree = "<group>"; };
+		495D9BA223214B4E00290F3F /* ShowTextClue.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowTextClue.xib; sourceTree = "<group>"; };
+		495D9BA423214B5800290F3F /* ShowTextClue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTextClue.swift; sourceTree = "<group>"; };
 		4A788A7D387B66BE9A8D3A2D /* Pods_TreasureHuntTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHuntTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FB52027F73ADE9FB186BD0 /* Pods_TreasureHuntUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TreasureHuntUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6A162A96C303EFB83DA9C4 /* Pods-TreasureHuntUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TreasureHuntUITests.debug.xcconfig"; path = "Target Support Files/Pods-TreasureHuntUITests/Pods-TreasureHuntUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +184,8 @@
 		4933C1842314210600965996 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				495D9BA123214B3F00290F3F /* ShowTextClue */,
+				495D9B9923213A5000290F3F /* TextClue */,
 				4933C202231A0ADD00965996 /* GamePrompt */,
 				4933C210231A0E7900965996 /* MapLost */,
 				4933C20B231A0E4900965996 /* TreasureFound */,
@@ -382,22 +372,30 @@
 		493CE9F5230D7AF600E43B35 /* 3DModels */ = {
 			isa = PBXGroup;
 			children = (
-				493CE9F6230D7AF600E43B35 /* woodplank 4 baked colourseta.png */,
 				F3EFED62231FEC4D008C4412 /* trail.scn */,
 				F3EFED67231FF2B6008C4412 /* xmark.scn */,
 				F3EFED68231FF8D7008C4412 /* bottleanimated.scn */,
 				F3EFED69231FFB5F008C4412 /* signanimated.scn */,
-				493CE9F7230D7AF600E43B35 /* placareal.dae */,
-				493CE9F8230D7AF600E43B35 /* xis.scn */,
-				493CE9F9230D7AF600E43B35 /* trilhamadeira.scn */,
-				493CE9FA230D7AF600E43B35 /* placaleft.scn */,
-				493CE9FB230D7AF600E43B35 /* xis-baked.001.png */,
-				493CE9FC230D7AF600E43B35 /* torabaked.png */,
-				493CE9FD230D7AF600E43B35 /* xis.dae */,
-				493CE9FE230D7AF600E43B35 /* placaright.scn */,
-				493CE9FF230D7AF600E43B35 /* scroll.scn */,
 			);
 			path = 3DModels;
+			sourceTree = "<group>";
+		};
+		495D9B9923213A5000290F3F /* TextClue */ = {
+			isa = PBXGroup;
+			children = (
+				495D9B9A23213A6D00290F3F /* TextClue.xib */,
+				495D9B9C23213A7900290F3F /* TextClue.swift */,
+			);
+			path = TextClue;
+			sourceTree = "<group>";
+		};
+		495D9BA123214B3F00290F3F /* ShowTextClue */ = {
+			isa = PBXGroup;
+			children = (
+				495D9BA223214B4E00290F3F /* ShowTextClue.xib */,
+				495D9BA423214B5800290F3F /* ShowTextClue.swift */,
+			);
+			path = ShowTextClue;
 			sourceTree = "<group>";
 		};
 		E6AEE28BA009F837E6A91CD7 /* Frameworks */ = {
@@ -531,21 +529,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493CEA04230D7AF600E43B35 /* placaleft.scn in Resources */,
 				493CE9A5230D714900E43B35 /* Assets.xcassets in Resources */,
 				495D9B9523200C5600290F3F /* xmark.scn in Resources */,
-				493CEA06230D7AF600E43B35 /* torabaked.png in Resources */,
+				495D9BA323214B4E00290F3F /* ShowTextClue.xib in Resources */,
 				493CE9D0230D71CF00E43B35 /* big_noodle_titling.ttf in Resources */,
-				493CEA03230D7AF600E43B35 /* trilhamadeira.scn in Resources */,
 				495D9B9723200C5B00290F3F /* signanimated.scn in Resources */,
 				493CE9F4230D747C00E43B35 /* Main.storyboard in Resources */,
-				493CEA01230D7AF600E43B35 /* placareal.dae in Resources */,
-				493CEA02230D7AF600E43B35 /* xis.scn in Resources */,
-				493CEA09230D7AF600E43B35 /* scroll.scn in Resources */,
+				495D9B9B23213A6D00290F3F /* TextClue.xib in Resources */,
 				495D9B9423200C4700290F3F /* trail.scn in Resources */,
 				4933C20D231A0E6700965996 /* TreasureFound.xib in Resources */,
 				493CE9DA230D734A00E43B35 /* LaunchScreen.storyboard in Resources */,
-				493CEA05230D7AF600E43B35 /* xis-baked.001.png in Resources */,
 				4933C204231A0AEC00965996 /* GamePrompt.xib in Resources */,
 				4933C212231A0E8C00965996 /* MapLost.xib in Resources */,
 				4933C1FF231A09A600965996 /* PopupAlert.xib in Resources */,
@@ -553,9 +546,6 @@
 				493CE9CF230D71CC00E43B35 /* big_noodle_titling_oblique.ttf in Resources */,
 				4933C1F9231802A500965996 /* CluesButtons.xib in Resources */,
 				493CE9E8230D742600E43B35 /* bensound-sunny.mp3 in Resources */,
-				493CEA00230D7AF600E43B35 /* woodplank 4 baked colourseta.png in Resources */,
-				493CEA08230D7AF600E43B35 /* placaright.scn in Resources */,
-				493CEA07230D7AF600E43B35 /* xis.dae in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +668,7 @@
 				4933C19D231438B600965996 /* HidingTreasure.swift in Sources */,
 				4933C19F2314392D00965996 /* LookingForTreasure.swift in Sources */,
 				4933C20F231A0E7500965996 /* TreasureFoundView.swift in Sources */,
+				495D9B9D23213A7900290F3F /* TextClue.swift in Sources */,
 				4933C201231A09B800965996 /* PopupAlert.swift in Sources */,
 				4933C1AF23169E4D00965996 /* NodeType.swift in Sources */,
 				4933C1A5231564CC00965996 /* CameraNotAuthorized.swift in Sources */,
@@ -690,6 +681,7 @@
 				4933C1A92315661A00965996 /* AddingSignClue.swift in Sources */,
 				4933C1A72315660A00965996 /* AddingTrailClue.swift in Sources */,
 				493CE9A3230D714800E43B35 /* TreasureHunt.xcdatamodeld in Sources */,
+				495D9BA523214B5800290F3F /* ShowTextClue.swift in Sources */,
 				4933C214231A0E9800965996 /* MapLost.swift in Sources */,
 				4933C1912314271A00965996 /* ARViewController.swift in Sources */,
 			);

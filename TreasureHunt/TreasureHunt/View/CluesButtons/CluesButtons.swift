@@ -30,14 +30,14 @@ class CluesButtons: UIView {
     }
     
     @IBAction func textCluePressed(_ sender: Any) {
-        NotificationsFacade.shared.post(name: .addingTextClue, object: nil)
+        NotificationsFacade.shared.post(name: .addingTextClue, object: nil, userInfo: nil)
     }
     
     @IBAction func signCluePressed(_ sender: Any) {
-        NotificationsFacade.shared.post(name: .addingSignClue, object: nil)
+        NotificationsFacade.shared.post(name: .addingSignClue, object: nil, userInfo: nil)
     }
     
     @IBAction func trailCluePressed(_ sender: Any) {
-        NotificationsFacade.shared.post(name: .addingTrailClue, object: nil)
+        NotificationsFacade.shared.post(name: .addingTrailClue, object: nil, userInfo: nil)
     }
 }

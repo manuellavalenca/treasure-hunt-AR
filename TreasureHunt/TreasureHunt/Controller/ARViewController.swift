@@ -94,6 +94,9 @@ class ARViewController: UIViewController {
                         self.stateMachine.enter(TreasureFound.self)
                         print("ACHOU O TESOUROO")
                     }
+                    if nodear.type == .textClue {
+                        NotificationsFacade.shared.post(name: .textClueTapped, object: nil, userInfo: ["node": nodear])
+                    }
                 }
             }
         }
@@ -134,6 +137,7 @@ class ARViewController: UIViewController {
             hitTestResults = self.sceneView.hitTest(tapLocation, types: .existingPlane)
         case is AddingTextClue:
             hitTestResults = self.sceneView.hitTest(tapLocation, types: .featurePoint)
+            NotificationsFacade.shared.post(name: .textClueNodeAdded, object: nil, userInfo: nil)
         case is AddingSignClue:
             hitTestResults = self.sceneView.hitTest(tapLocation, types: .existingPlane)
         case is AddingTrailClue:
@@ -158,5 +162,12 @@ class ARViewController: UIViewController {
     
     @objc func goToHomeScreen() {
         self.performSegue(withIdentifier: "goToHomeScreen", sender: nil)
+    }
+}
+
+extension ARViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.sceneView.endEditing(true)
+        return false
     }
 }

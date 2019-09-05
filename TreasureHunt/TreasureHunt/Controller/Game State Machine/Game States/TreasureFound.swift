@@ -18,7 +18,7 @@ class TreasureFound: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: TreasureFound")
-        NotificationsFacade.shared.post(name: .treasureFound, object: nil)
+        NotificationsFacade.shared.post(name: .treasureFound, object: nil, userInfo: nil)
         self.stateMachine?.enter(GameNotStarted.self)
     }
     
