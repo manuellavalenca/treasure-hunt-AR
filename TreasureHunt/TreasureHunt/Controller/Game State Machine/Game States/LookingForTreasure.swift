@@ -19,6 +19,7 @@ class LookingForTreasure: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: LookingForTreasure")
+        NotificationsFacade.shared.addObserver(self, selector: #selector(updateTextClueView), name: .textClueTapped, object: nil)
         self.removeCluesButtons()
         self.scene.addSearchTapGesture()
         self.removePlanes()
@@ -51,5 +52,16 @@ class LookingForTreasure: GKState {
         default:
             return false
         }
+    }
+    
+    @objc func updateTextClueView(_ notification: Notification) {
+        let nodear = notification.userInfo?["node"] as? NodeAR
+        self.scene.sceneView.textClueView?.textField.text = nodear!.text
+    }
+    
+    func showTextClueView() {
+        self.scene.sceneView.textClueView = TextClue(frame: CGRect(x: 0, y: 0, width: 414, height: 115))
+        self.scene.sceneView.addSubview(self.scene.sceneView.textClueView!)
+        self.scene.sceneView.bringSubviewToFront(self.scene.sceneView.textClueView!)
     }
 }
