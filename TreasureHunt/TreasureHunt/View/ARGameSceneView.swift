@@ -18,15 +18,16 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
     var cluesButtonsView: CluesButtons?
     var gamePromptView: GamePrompt?
     var endCluesButton: ARButton?
-    var textClueView: TextClue?
-    var textFromClue: String?
+    var nodeTappedIndex: Int?
     
     func hideFarNodes() {
-        for node in nodesArray {
-            if node.distance > 3.5 {
-                node.node.isHidden = true
+        for nodear in nodesArray {
+            let nodeDistance = nodear.getDistance()
+            let node = nodear.getNode()
+            if nodeDistance > 3.5 {
+                node.isHidden = true
             } else {
-                node.node.isHidden = false
+                node.isHidden = false
             }
         }
     }
@@ -81,8 +82,9 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        for node in nodesArray {
-            startingPositionNode = node.node
+        for nodear in nodesArray {
+            let node = nodear.getNode()
+            startingPositionNode = node
             if startingPositionNode != nil && endingPositionNode != nil {
                 return
             }
@@ -90,7 +92,7 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
             guard let yDistance = ARService.distance3(fromStartingPositionNode: startingPositionNode, onView: self, cameraRelativePosition: cameraRelativePosition)?.y else {return}
             guard let zDistance = ARService.distance3(fromStartingPositionNode: startingPositionNode, onView: self, cameraRelativePosition: cameraRelativePosition)?.z else {return}
             DispatchQueue.main.async {
-                node.distance = Double(ARService.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance))
+                nodear.setDistance(to: Double(ARService.distance(xAxis: xDistance, yAxis: yDistance, zAxis: zDistance)))
             }
         }
         self.hideFarNodes()

@@ -52,6 +52,7 @@ class ARViewController: UIViewController {
         let addingSignClue = AddingSignClue(scene: self)
         let addingTextClue = AddingTextClue(scene: self)
         let lookingForTreasure = LookingForTreasure(scene: self)
+        let textClueReading = TextClueReading(scene: self)
         let treasureFound = TreasureFound(scene: self)
         let mappingLost = MappingLost(scene: self)
         self.stateMachine = GKStateMachine(states: [gameNotStarted,
@@ -62,6 +63,7 @@ class ARViewController: UIViewController {
                                                     addingSignClue,
                                                     addingTextClue,
                                                     lookingForTreasure,
+                                                    textClueReading,
                                                     treasureFound,
                                                     mappingLost])
     }
@@ -89,13 +91,15 @@ class ARViewController: UIViewController {
         let hitTestResults = self.sceneView.hitTest(tapLocation, options: nil)
         if let tappedNode = hitTestResults.first?.node {
             for nodear in self.sceneView.nodesArray {
-                if nodear.node.contains(tappedNode) {
-                    if nodear.type == .treasure {
+                let node = nodear.getNode()
+                let nodeType = nodear.getType()
+                if node.contains(tappedNode) {
+                    if nodeType == .treasure {
                         self.stateMachine.enter(TreasureFound.self)
-                        print("ACHOU O TESOUROO")
                     }
-                    if nodear.type == .textClue {
-                        NotificationsFacade.shared.post(name: .textClueTapped, object: nil, userInfo: ["node": nodear])
+                    if nodeType == .textClue {
+                        self.sceneView.nodeTappedIndex = self.sceneView.nodesArray.firstIndex{$0 === nodear}
+                        self.stateMachine.enter(TextClueReading.self)
                     }
                 }
             }
@@ -104,11 +108,15 @@ class ARViewController: UIViewController {
     
     @objc func addNode(withGestureRecognizer recognizer: UIGestureRecognizer) {
         let addingNode = self.createNodeAR()
+        let node = addingNode.getNode()
         guard let hitTestResult = self.makeHitTestResult(with: recognizer) else { return }
-        addingNode.node.transform = SCNMatrix4Mult(addingNode.node.transform, SCNMatrix4(ARService.transformNode(in: hitTestResult, target: self.sceneView)))
-        addingNode.node.position = ARService.calculatePosition(in: hitTestResult)
+        node.transform = SCNMatrix4Mult(node.transform, SCNMatrix4(ARService.transformNode(in: hitTestResult, target: self.sceneView)))
+        node.position = ARService.calculatePosition(in: hitTestResult)
         self.sceneView.nodesArray.append(addingNode)
-        self.sceneView.scene.rootNode.addChildNode(addingNode.node)
+        self.sceneView.scene.rootNode.addChildNode(node)
+        if addingNode.getType() == .textClue {
+            NotificationsFacade.shared.post(name: .textClueNodeAdded, object: nil, userInfo: nil)
+        }
     }
     
     func createNodeAR() -> NodeAR {
@@ -137,7 +145,6 @@ class ARViewController: UIViewController {
             hitTestResults = self.sceneView.hitTest(tapLocation, types: .existingPlane)
         case is AddingTextClue:
             hitTestResults = self.sceneView.hitTest(tapLocation, types: .featurePoint)
-            NotificationsFacade.shared.post(name: .textClueNodeAdded, object: nil, userInfo: nil)
         case is AddingSignClue:
             hitTestResults = self.sceneView.hitTest(tapLocation, types: .existingPlane)
         case is AddingTrailClue:

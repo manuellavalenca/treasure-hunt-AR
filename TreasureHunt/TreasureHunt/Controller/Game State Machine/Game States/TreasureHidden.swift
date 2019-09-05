@@ -17,6 +17,7 @@ class TreasureHidden: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: TreasureHidden")
+        self.scene.removeCurrentGestureRecognizer()
         self.showCluesButtons()
         self.createEndCluesButton()
         self.scene.sceneView.gamePromptView?.typeLetter(text: "Vamos começar a criar o mapa. Escolha um tipo de dica e crie vários caminhos. Quando terminar, pressione finalizar.")

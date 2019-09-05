@@ -31,4 +31,8 @@ class ShowTextClue: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(contentView)
     }
+    @IBAction func closeTextClue(_ sender: Any) {
+        NotificationsFacade.shared.post(name: .textClueRead, object: nil, userInfo: nil)
+        self.removeFromSuperview()
+    }
 }
