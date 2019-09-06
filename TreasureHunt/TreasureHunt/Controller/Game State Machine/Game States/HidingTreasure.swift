@@ -20,7 +20,7 @@ class HidingTreasure: GKState {
         print("StateMachine: HidingTreasure")
         self.scene.addCluesTapGesture()
         self.showGamePrompt()
-        self.scene.sceneView.gamePromptView?.typeLetter(text: "Bem-vindo ao Hunt. Marque o lugar em que o tesouro foi escondido tocando na tela.")
+        self.scene.sceneView.gamePromptView?.typeLetter(text: "Bem-vindos ao Hunt! Marque o lugar em que o tesouro foi escondido tocando na tela.")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -35,7 +35,7 @@ class HidingTreasure: GKState {
     }
     
     func showGamePrompt() {
-        self.scene.sceneView.gamePromptView = GamePrompt(frame: CGRect(x: 0, y: 0, width: 414, height: 115))
+        self.scene.sceneView.gamePromptView = GamePrompt(frame: CGRect(x: 0, y: 30, width: 414, height: 113))
         self.scene.sceneView.addSubview(self.scene.sceneView.gamePromptView!)
         self.scene.sceneView.bringSubviewToFront(self.scene.sceneView.gamePromptView!)
     }

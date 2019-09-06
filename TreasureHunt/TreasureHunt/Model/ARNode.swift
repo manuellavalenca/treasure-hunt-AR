@@ -10,10 +10,10 @@ import Foundation
 import SceneKit
 
 class NodeAR {
-    var distance: Double = 0.0
-    var text: String?
-    var type: NodeType = .treasure
-    var node: SCNNode = SCNNode()
+    private var distance: Double = 0.0
+    private var text: String?
+    private var type: NodeType = .treasure
+    private var node: SCNNode = SCNNode()
     
     init(type: NodeType) {
         var trailScene = SCNScene()
@@ -33,6 +33,38 @@ class NodeAR {
             trailNode.addChildNode(child)
         }
         self.node = trailNode
+    }
+    
+    func getDistance() -> Double {
+        return self.distance
+    }
+    
+    func getText() -> String? {
+        return self.text
+    }
+    
+    func getType() -> NodeType {
+        return self.type
+    }
+    
+    func getNode() -> SCNNode {
+        return self.node
+    }
+    
+    func setDistance(to newDistance: Double) {
+        self.distance = newDistance
+    }
+    
+    func setText(text: String) {
+        self.text = text
+    }
+    
+    func setType(to newType: NodeType) {
+        self.type = newType
+    }
+    
+    func setNode(to newNode: SCNNode) {
+        self.node = newNode
     }
     
     required init?(coder aDecoder: NSCoder) {

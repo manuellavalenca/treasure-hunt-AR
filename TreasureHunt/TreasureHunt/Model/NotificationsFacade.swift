@@ -48,4 +48,7 @@ extension Notification.Name {
     static var textClueNodeAdded: Notification.Name {
         return .init("View.textClueNodeAdded")
     }
+    static var textClueRead: Notification.Name {
+        return .init("View.textClueRead")
+    }
 } 

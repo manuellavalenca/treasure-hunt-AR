@@ -18,6 +18,7 @@ class AddingTrailClue: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: AddingTrailClue")
+        self.scene.addCluesTapGesture()
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

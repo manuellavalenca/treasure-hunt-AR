@@ -18,6 +18,7 @@ class AddingSignClue: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: AddingSignClue")
+        self.scene.addCluesTapGesture()
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

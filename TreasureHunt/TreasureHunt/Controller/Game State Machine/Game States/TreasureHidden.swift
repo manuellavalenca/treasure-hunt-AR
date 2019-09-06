@@ -17,9 +17,10 @@ class TreasureHidden: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: TreasureHidden")
+        self.scene.removeCurrentGestureRecognizer()
         self.showCluesButtons()
         self.createEndCluesButton()
-        self.scene.sceneView.gamePromptView?.typeLetter(text: "Vamos começar a criar o mapa. Escolha um tipo de dica e crie vários caminhos. Quando terminar, pressione finalizar.")
+        self.scene.sceneView.gamePromptView?.typeLetter(text: "Vamos começar a criar o mapa. Escolha um tipo de dica e toque na tela para formar um caminho!")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -36,7 +37,7 @@ class TreasureHidden: GKState {
     }
     
     func showCluesButtons() {
-        self.scene.sceneView.cluesButtonsView = CluesButtons(frame: CGRect(x: 0, y: self.scene.sceneView.frame.maxY - 500, width: 250, height: 250))
+        self.scene.sceneView.cluesButtonsView = CluesButtons(frame: CGRect(x: 0, y: self.scene.sceneView.frame.maxY - 500, width: 212, height: 212))
         self.scene.sceneView.addSubview(self.scene.sceneView.cluesButtonsView!)
         self.scene.sceneView.bringSubviewToFront(self.scene.sceneView.cluesButtonsView!)
     }

@@ -34,6 +34,7 @@ class TextClue: UIView {
         
     @IBAction func textClueTyped(_ sender: Any) {
         NotificationsFacade.shared.post(name: .textClueTyped, object: nil, userInfo: ["text": self.textField.text!])
-        //NotificationsFacade.shared.post(name: .textClueTyped, object: nil, userInfo: nil)
+        self.removeFromSuperview()
+        print("texto digitado: \(self.textField.text!)")
     }
 }
