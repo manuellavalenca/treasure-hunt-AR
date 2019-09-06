@@ -43,7 +43,7 @@ class TreasureHidden: GKState {
     }
     
     func createEndCluesButton() {
-        self.scene.sceneView.endCluesButton = ARButton(frame: CGRect(x: self.scene.sceneView.cluesButtonsView!.frame.maxX + 30, y: self.scene.sceneView.cluesButtonsView!.frame.midY, width: 80, height: 40))
+        self.scene.sceneView.endCluesButton = ARButton(frame: CGRect(x: self.scene.sceneView.cluesButtonsView!.frame.maxX + 30, y: self.scene.sceneView.cluesButtonsView!.frame.midY, width: 100, height: 50))
         self.scene.sceneView.endCluesButton!.setTitle("Finalizar", for: .normal)
         self.scene.sceneView.endCluesButton!.addTarget(self, action: #selector(endCluesButtonTapped), for: .touchUpInside)
         self.scene.sceneView.addSubview(self.scene.sceneView.endCluesButton!)
