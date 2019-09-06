@@ -23,7 +23,7 @@ class LookingForTreasure: GKState {
         self.scene.addSearchTapGesture()
         self.removePlanes()
         self.scene.sceneView.debugOptions = []
-        self.scene.sceneView.gamePromptView?.typeLetter(text: "Passe o celular para quem vai procurar o tesouro. Vamos começar a busca!")
+        self.scene.sceneView.gamePromptView?.typeLetter(text: "Passe o celular para quem vai procurar o tesouro. É hora de começar a busca!")
     }
     
     func removeCluesButtons() {
