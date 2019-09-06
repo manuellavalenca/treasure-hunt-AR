@@ -845,7 +845,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M67K4CFU7;
+				DEVELOPMENT_TEAM = 3DXHY3GVV2;
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -864,7 +864,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M67K4CFU7;
+				DEVELOPMENT_TEAM = 3DXHY3GVV2;
 				INFOPLIST_FILE = TreasureHunt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

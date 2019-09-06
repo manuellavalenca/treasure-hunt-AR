@@ -18,6 +18,7 @@ class ARGameSceneView: ARSCNView, ARSCNViewDelegate {
     var cluesButtonsView: CluesButtons?
     var gamePromptView: GamePrompt?
     var endCluesButton: ARButton?
+    var startLookingFor: ARButton?
     var nodeTappedIndex: Int?
     
     func hideFarNodes() {

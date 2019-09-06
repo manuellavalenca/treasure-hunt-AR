@@ -19,10 +19,11 @@ class LookingForTreasure: GKState {
     
     override func didEnter(from previousState: GKState?) {
         print("StateMachine: LookingForTreasure")
-        self.removeCluesButtons()
         self.scene.addSearchTapGesture()
         self.removePlanes()
         self.scene.sceneView.debugOptions = []
+        self.removeCluesButtons()
+//        createStartLookingForButton()
         self.scene.sceneView.gamePromptView?.typeLetter(text: "Passe o celular para quem vai procurar o tesouro. É hora de começar a busca!")
     }
     
@@ -41,6 +42,20 @@ class LookingForTreasure: GKState {
             }
         }
     }
+    
+//    func createStartLookingForButton() {
+//        self.scene.sceneView.startLookingFor = ARButton(frame: CGRect(x: 50 , y: 300, width: 100, height: 50))
+//        let image = UIImage(named:"Asset 3hunt")
+//        self.scene.sceneView.startLookingFor?.setImage(image, for: UIControl.State.normal)
+//        self.scene.sceneView.startLookingFor?.imageView?.contentMode = .scaleAspectFit
+//        self.scene.sceneView.startLookingFor!.addTarget(self, action: #selector(searchStarted), for: .touchUpInside)
+//        self.scene.sceneView.addSubview(self.scene.sceneView.endCluesButton!)
+//    }
+//
+//    @objc func searchStarted() {
+//        self.scene.sceneView.gamePromptView?.typeLetter(text: "Existem diferentes dicas, siga elas até encontrar o seu tesouro. Toque no ‘x’ ao encontrar o tesouro.")
+//        self.scene.sceneView.startLookingFor?.removeFromSuperview()
+//    }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {

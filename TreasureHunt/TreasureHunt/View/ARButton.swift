@@ -31,6 +31,8 @@ class ARButton: UIButton {
     }
     
     func setup() {
-        self.backgroundColor = UIColor.purple
+        let image = UIImage(named:"Asset 1hunt")
+        self.setImage(image, for: UIControl.State.normal)
+        self.imageView?.contentMode = .scaleAspectFit
     }
 }
